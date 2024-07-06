@@ -25,4 +25,6 @@ Une fois Red Hat Enterprise Linux installé, vous devez enregistrer votre systè
 ```bash
 subscription-manager register
  ```
-[Retour à la Table des Matières](../README.md#table-des-matières)
+<p style="text-align: right;">
+  <a href="../README.md#table-des-matières">Retour à la Table des Matières</a>
+</p>

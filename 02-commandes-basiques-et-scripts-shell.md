@@ -55,7 +55,7 @@
 cp /etc/passwd /tmp
 ```
 -->
-### Q2. Copy "/etc/shadow" to "/home/tekup/" and create a new file called "nopass" containing all lines with "!!".
+#### Q2. Copy "/etc/shadow" to "/home/tekup/" and create a new file called "nopass" containing all lines with "!!".
 <!-- 
 ```bash
 mkdir /home/tekup
@@ -63,43 +63,43 @@ cp /etc/shadow /home/tekup
 grep '!!' /home/tekup/shadow > nopass
 ```
 -->
-### Q3. Find all lines in the file '/usr/share/dict/words' that contain the string "seismic". Copy all these lines to the file '/root/wordlist'.
+#### Q3. Find all lines in the file '/usr/share/dict/words' that contain the string "seismic". Copy all these lines to the file '/root/wordlist'.
 <!-- 
 ```bash
 grep -w seismic /usr/share/dict/words > /root/wordlist
 ```
 -->
-### Q4. Locate all files owned by "user".
+#### Q4. Locate all files owned by "user".
 <!-- 
 ```bash
 find / -type f -user user 2> /dev/null
 ```
 -->
-### Q5. Find all files less than 1 KB size in '/var'.
+#### Q5. Find all files less than 1 KB size in '/var'.
 <!-- 
 ```bash
 find /var -type f -size -1k
 ```
 -->
-### Q6. Find all files ending with ".txt" in the '/root/Documents' directory.
+#### Q6. Find all files ending with ".txt" in the '/root/Documents' directory.
 <!-- 
 ```bash
 find /root/Documents -name *.txt
 ```
 -->
-### Q7. Copy all files owned by "user" to "/root/dir".
+#### Q7. Copy all files owned by "user" to "/root/dir".
 <!-- 
 ```bash
 find / -type f -user user -exec cp -a {} /root/dir \;
 ```
 -->
-### Q8. Copy all files larger than 100 MB to the '/backup' directory.
+#### Q8. Copy all files larger than 100 MB to the '/backup' directory.
 <!-- 
 ```bash
 find / -type f -size +100M -exec cp -a {} /backup \;
 ```
 -->
-### Q9. Copy all files in the "/home/user/documents" directory that have read and write permissions for the owner, read-only permission for the group, and no permission for others to the "/secure_backup" directory.
+#### Q9. Copy all files in the "/home/user/documents" directory that have read and write permissions for the owner, read-only permission for the group, and no permission for others to the "/secure_backup" directory.
 <!-- 
 ```bash
 find /home/user/documents -perm 640 -exec cp -a {} /secure_backup \;

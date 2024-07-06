@@ -52,7 +52,11 @@
 ```bash
 cp /etc/passwd /tmp
  ```
-
+<!-- 
+```bash
+cp /etc/passwd /tmp
+ ```
+ -->
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
 </p>

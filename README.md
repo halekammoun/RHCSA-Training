@@ -1,4 +1,6 @@
-# ![Red Hat Logo](image.png)
+<p align="center">
+  <img src="image.png" alt="Red Hat Logo" style="width: 200px;"/>
+</p>
 
 <h1 align="center" style="color: red;">Formation RHCSA : Administration Système sous Red Hat Enterprise Linux</h1>
 

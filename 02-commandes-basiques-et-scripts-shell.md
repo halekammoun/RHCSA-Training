@@ -45,11 +45,21 @@
  -type: f pour fichier et d pour directory,  
  commande:  
  cp: copier les fichiers et les répertoires recherchés (cp -a {})  
+## script shell:
+- Le fichier doit avoir l'extension `.sh` .
+- doit commencer par le shebang : `#!/bin/bash` ou `#!/bin/sh`.
+- afficher du texte: `echo “texte”`
+- entrer une variable : `read variable`
+- appel variable: `$variable`
+- enregistrer des messages dans le journal du système: `logger “texte”`
+vérifier le texte de journal du système: `journalctl | grep “texte”`
+pour exécuter les scripts : `bash fichier.sh` ou `sh fichier.sh` ,
+ou `chmod +x fichier.sh` puis `./fichier.sh`.
 
- ## Lab 01
+
+## Lab 01
 
 #### Q1. Copy '/etc/passwd' to '/tmp'.
-
 <!-- 
 ```bash
 cp /etc/passwd /tmp
@@ -104,6 +114,18 @@ find / -type f -size +100M -exec cp -a {} /backup \;
 ```bash
 find /home/user/documents -perm 640 -exec cp -a {} /secure_backup \;
 ```
+-->
+#### Q10. Ask the user for their name, Greet the user then Log the event in the system logs using a script called greeting.sh 
+<!-- 
+```bash
+vim greeting.sh
+#! /bin/bash
+echo “your name pls”
+read nom
+echo “hello $nom”
+logger “user $nom executed the greeting script”
+bash greeting.sh
+journalctl | grep user 
 -->
 ## Script shell
 <p style="text-align: right;">

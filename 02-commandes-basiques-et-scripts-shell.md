@@ -51,5 +51,6 @@
 ### Q1. Copy '/etc/passwd' to '/tmp'.
 ```bash
 cp /etc/passwd /tmp
+ ```
 
 [Retour à la Table des Matières](../README.md#table-des-matières)

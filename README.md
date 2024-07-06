@@ -2,7 +2,7 @@
   <img src="image.png" alt="Red Hat Logo" style="width: 200px;"/>
 </p>
 
-<h1 align="center">Formation RHCSA : </h1>
+<h1 align="center">Formation RHCSA</h1>
 <h1 align="center">Administration Système sous Red Hat Enterprise Linux</h1>
 
 ## Introduction

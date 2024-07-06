@@ -53,4 +53,6 @@
 cp /etc/passwd /tmp
  ```
 
-[Retour à la Table des Matières](../README.md#table-des-matières)
+<p style="text-align: right;">
+  <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
+</p>

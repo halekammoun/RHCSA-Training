@@ -45,15 +45,15 @@
  -type: f pour fichier et d pour directory,  
  commande:  
  cp: copier les fichiers et les répertoires recherchés (cp -a {})  
-## script shell:
+## script shell
 - Le fichier doit avoir l'extension `.sh` .
 - doit commencer par le shebang : `#!/bin/bash` ou `#!/bin/sh`.
 - afficher du texte: `echo “texte”`
 - entrer une variable : `read variable`
 - appel variable: `$variable`
 - enregistrer des messages dans le journal du système: `logger “texte”`
-vérifier le texte de journal du système: `journalctl | grep “texte”`
-pour exécuter les scripts : `bash fichier.sh` ou `sh fichier.sh` ,
+- vérifier le texte de journal du système: `journalctl | grep “texte”`
+- pour exécuter les scripts : `bash fichier.sh` ou `sh fichier.sh` ,
 ou `chmod +x fichier.sh` puis `./fichier.sh`.
 
 
@@ -127,7 +127,7 @@ logger “user $nom executed the greeting script”
 bash greeting.sh
 journalctl | grep user 
 -->
-## Script shell
+
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
 </p>

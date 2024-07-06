@@ -34,7 +34,7 @@ Ce cours est conçu pour vous préparer à l'examen RHCSA (Red Hat Certified Sys
 Rejoignez-nous dans cette aventure et devenez un administrateur système certifié Red Hat ! 🚀
 
 ## Table des Matières
-<ol style="list-style-type: decimal; margin-left: 20px;">
+<ol id="table-des-matières" style="list-style-type: decimal; margin-left: 20px;">
   <li><a href="01-installation-et-enregistrement.md">Installation de Red Hat Enterprise Linux & Enregistrement</a></li>
   <li><a href="02-commandes-basiques-et-scripts-shell.md">Commandes basiques & Scripts Shell</a></li>
   <li><a href="03-gestion-utilisateurs-groupes.md">Gestion des Utilisateurs et des Groupes</a></li>

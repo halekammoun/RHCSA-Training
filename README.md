@@ -2,7 +2,7 @@
   <img src="image.png" alt="Red Hat Logo" style="width: 200px;"/>
 </p>
 
-<h1 style="text-align: center; color: red;">Formation RHCSA : Administration Système sous Red Hat Enterprise Linux</h1>
+<h1 align="center" style="color: red;">Formation RHCSA : Administration Système sous Red Hat Enterprise Linux</h1>
 
 ## Introduction
 Bienvenue dans ce cours sur l'administration système sous Red Hat Enterprise Linux. Ce cours est conçu pour vous préparer à l'examen RHCSA.
@@ -22,3 +22,4 @@ Bienvenue dans ce cours sur l'administration système sous Red Hat Enterprise Li
   <li><a href="11-reseaux.md">Réseaux</a></li>
   <li><a href="12-reinitialisation-mot-de-passe-root.md">Réinitialisation du Mot de Passe Root</a></li>
 </ol>
+

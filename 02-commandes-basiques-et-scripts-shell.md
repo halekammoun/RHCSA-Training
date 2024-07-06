@@ -44,5 +44,5 @@
  -perm: permission,  
  -type: f pour fichier et d pour directory,  
  commande:  
- - cp: copier les fichiers et les répertoires recherchés (cp -a {})  
+ cp: copier les fichiers et les répertoires recherchés (cp -a {})  
 

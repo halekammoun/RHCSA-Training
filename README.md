@@ -2,8 +2,8 @@
   <img src="image.png" alt="Red Hat Logo" style="width: 200px;"/>
 </p>
 
-<h1 align="center" style="color: red;">Formation RHCSA : </h1>
- <h1> Administration Système sous Red Hat Enterprise Linux</h1>
+<h1 align="center">Formation RHCSA : </h1>
+<h1 align="center">Administration Système sous Red Hat Enterprise Linux</h1>
 
 ## Introduction
 👋 Bienvenue dans ce cours sur l'administration système sous Red Hat Enterprise Linux. 

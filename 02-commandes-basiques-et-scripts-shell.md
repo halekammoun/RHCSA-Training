@@ -34,7 +34,7 @@
 - `history` : Affiche l'historique des commandes.
 - `grep` : Recherche des motifs dans un fichier.
 - `grep -w` : Recherche un mot exact.
-- `find` : Recherche des fichiers et des répertoires dans un répertoire.
+- `find` : Recherche des fichiers et des répertoires dans un répertoire.  
  Syntaxe: find répertoire [options] [-exec cp -a {} destination \;]  
  options:  
  -name: nom de fichier,  

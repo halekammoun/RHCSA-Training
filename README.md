@@ -1,13 +1,11 @@
-# ![Red Hat Logo](https://www.redhat.com/cms/managed-files/logo-redhat.svg)
+<p align="center">
+  <img src="image.png" alt="Red Hat Logo" style="width: 200px;"/>
+</p>
 
-<h1 style="text-align: center;">Formation RHCSA : Administration Système sous Red Hat Enterprise Linux</h1>
+<h1 style="text-align: center; color: red;">Formation RHCSA : Administration Système sous Red Hat Enterprise Linux</h1>
 
 ## Introduction
 Bienvenue dans ce cours sur l'administration système sous Red Hat Enterprise Linux. Ce cours est conçu pour vous préparer à l'examen RHCSA.
-
-<div style="text-align: center; margin: 20px 0;">
-  <img src="https://www.redhat.com/cms/managed-files/logo-redhat.svg" alt="Red Hat Logo" style="width: 200px;"/>
-</div>
 
 ## Table des Matières
 <ol style="list-style-type: decimal; margin-left: 20px;">

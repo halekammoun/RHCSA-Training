@@ -37,12 +37,12 @@
 - `find` : Recherche des fichiers et des répertoires dans un répertoire.
 - Syntaxe: find répertoire [options] [-exec cp -a {} destination \;]
 - options:
-- -name: nom de fichier,
-- -group: le grp propriétaire, 
-- -user: le propriétaire,
-- -size: taille n{k,M,G…} ou +n{k,M,G…} ou -n{k,M,G…}, 
-- -perm: permission,
-- -type: f pour fichier et d pour directory,
+ -name: nom de fichier,
+ -group: le grp propriétaire, 
+ -user: le propriétaire,
+ -size: taille n{k,M,G…} ou +n{k,M,G…} ou -n{k,M,G…}, 
+ -perm: permission,
+ -type: f pour fichier et d pour directory,
 - commande: 
  - cp: copier les fichiers et les répertoires recherchés (cp -a {})
 

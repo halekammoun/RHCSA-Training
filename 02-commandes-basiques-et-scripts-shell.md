@@ -5,7 +5,7 @@
 
 ## Commandes de Base
 
-### Théorie
+
 - `pwd` : Affiche le chemin du répertoire courant.
 - `cd directory` : Change le répertoire courant vers "directory".
 - `cd ..` : Change le répertoire courant vers le répertoire parent.
@@ -46,7 +46,7 @@
  commande:  
  cp: copier les fichiers et les répertoires recherchés (cp -a {})  
 
- ## Pratique
+ ## Lab 01
 
 #### Q1. Copy '/etc/passwd' to '/tmp'.
 
@@ -105,6 +105,7 @@ find / -type f -size +100M -exec cp -a {} /backup \;
 find /home/user/documents -perm 640 -exec cp -a {} /secure_backup \;
 ```
 -->
+## Script shell
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
 </p>

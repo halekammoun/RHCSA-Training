@@ -5,7 +5,7 @@
 
 ## Commandes de Base
 
-### Commandes Théoriques
+### Théorie
 - `pwd` : Affiche le chemin du répertoire courant.
 - `cd directory` : Change le répertoire courant vers "directory".
 - `cd ..` : Change le répertoire courant vers le répertoire parent.
@@ -46,3 +46,10 @@
  commande:  
  cp: copier les fichiers et les répertoires recherchés (cp -a {})  
 
+ ## Pratique
+
+### Q1. Copy '/etc/passwd' to '/tmp'.
+```bash
+cp /etc/passwd /tmp
+
+[Retour à la Table des Matières](../README.md#table-des-matières)

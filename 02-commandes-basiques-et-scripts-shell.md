@@ -49,9 +49,7 @@
  ## Pratique
 
 ### Q1. Copy '/etc/passwd' to '/tmp'.
-```bash
-cp /etc/passwd /tmp
- ```
+
 <!-- 
 ```bash
 cp /etc/passwd /tmp

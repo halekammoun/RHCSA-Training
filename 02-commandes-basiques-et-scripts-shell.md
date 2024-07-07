@@ -3,8 +3,9 @@
 ## Introduction
 👋 Dans cette section, nous allons explorer les commandes de base et les scripts shell essentiels pour l'administration système sous Red Hat Enterprise Linux.
 <p align="center">
-  <img src="images/1_WEIqrLV8aBY-VdKLQjElQg.gif" alt="tree" style="width: 600px;"/>
+  <img src="images/1_WEIqrLV8aBY-VdKLQjElQg.gif" alt="tree" style="width: 500px;"/>
 </p>
+
 ## Commandes de Base
 
 

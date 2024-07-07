@@ -7,8 +7,6 @@
 </p>
 
 ## Commandes de Base
-
-
 - `pwd` : Affiche le chemin du répertoire courant.
 - `cd directory` : Change le répertoire courant vers "directory".
 - `cd ..` : Change le répertoire courant vers le répertoire parent.
@@ -23,18 +21,71 @@
 - `echo "text"` : Affiche du texte.
 - `echo "text" > file` : Écrase le contenu du fichier avec le texte.
 - `echo "text" >> file` : Ajoute du texte à la fin du fichier.
+- `command 2> file` : Sends error output to file.
 - `vim / nano` : Édite un fichier en utilisant l'éditeur Vim ou Nano.
 - `rmdir` : Supprime un répertoire vide.
 - `rm` : Supprime un fichier.
 - `rm -rf` : Supprime un répertoire récursivement et de façon forcée.
 - `man / help` : Fournit des informations sur la commande.
-- `cp -rf sourceLocation destinationLocation` : Copie un répertoire.
-- `cp sourceLocation destinationLocation` : Copie un fichier.
-- `mv sourceLocation destinationLocation` : Renomme ou déplace un fichier ou un répertoire.
 - `ctrl + a` : Déplace le curseur au début de la ligne.
 - `ctrl + e` : Déplace le curseur à la fin de la ligne.
 - `ctrl + c` : Arrête l'exécution d'une commande.
 - `history` : Affiche l'historique des commandes.
+## Lab 00
+#### Q1. Navigate to your home directory.
+<!-- 
+```bash
+cd ~
+```
+-->
+#### Q2. Create a directory named LinuxCommands.
+<!-- 
+```bash
+mkdir LinuxCommands
+```
+-->
+#### Q3. Navigate to the LinuxCommands directory.
+<!-- 
+```bash
+cd LinuxCommands
+```
+-->
+#### Q4. Create the directory structure course1/course2/course3/course4 while remaining in the LinuxCommands directory.
+<!-- 
+```bash
+mkdir -p course1/course2/course3/course4
+```
+or 
+```bash
+mkdir course1  cd course1 mkdir course2  cd course2  mkdir course3  cd course3  mkdir course4  
+```
+-->
+#### Q5. Navigate into the LinuxCommands directory and create the following files: file1, file2, file3 and file4.  
+<!-- 
+```bash
+cd ~/LinuxCommands  mkdir file1 file2 file3 file4
+```
+or 
+```bash
+cd ~/LinuxCommands  mkdir file{1,4}
+```
+-->
+#### Q6. Determine the owner of the files and their last modification date.
+<!-- 
+```bash
+ls -l 
+```
+-->
+#### Q6. Delete the LinuxCommands directory.
+<!-- 
+```bash
+cd ..  
+rm -rf 
+```
+-->
+- `cp -rf sourceLocation destinationLocation` : Copie un répertoire.
+- `cp sourceLocation destinationLocation` : Copie un fichier.
+- `mv sourceLocation destinationLocation` : Renomme ou déplace un fichier ou un répertoire.
 - `grep` : Recherche des motifs dans un fichier.
 - `grep -w` : Recherche un mot exact.
 - `find` : Recherche des fichiers et des répertoires dans un répertoire.  
@@ -48,23 +99,20 @@
  -type: f pour fichier et d pour directory,  
  commande:  
  cp: copier les fichiers et les répertoires recherchés (cp -a {})  
- 
-
 ## Lab 01
-
-#### Q0. Copy '/etc/passwd' to '/tmp'.
+#### Q1. Copy '/etc/passwd' to '/tmp'.
 <!-- 
 ```bash
 cp /etc/passwd /tmp
 ```
 -->
-#### Q1. copy the file /etc/passwd to your home directory and name it mypasswd.
+#### Q2. copy the file /etc/passwd to your home directory and name it mypasswd.
 <!-- 
 ```bash
 cp /etc/passwd ~/mypasswd
 ```
 -->
-#### Q2. Copy "/etc/shadow" to "/home/tekup/" and create a new file called "nopass" containing all lines with "!!".
+#### Q3. Copy "/etc/shadow" to "/home/tekup/" and create a new file called "nopass" containing all lines with "!!".
 <!-- 
 ```bash
 mkdir /home/tekup
@@ -72,62 +120,68 @@ cp /etc/shadow /home/tekup
 grep '!!' /home/tekup/shadow > nopass
 ```
 -->
-#### Q3. Find all lines in the file '/usr/share/dict/words' that contain the string "seismic". Copy all these lines to the file '/root/wordlist'.
+#### Q4. Find all lines in the file '/usr/share/dict/words' that contain the string "seismic". Copy all these lines to the file '/root/wordlist'.
 <!-- 
 ```bash
 grep -w seismic /usr/share/dict/words > /root/wordlist
 ```
 -->
-#### Q4. Locate all files owned by "user".
+#### Q5. Locate all files owned by "user".
 <!-- 
 ```bash
 find / -type f -user user 2> /dev/null
 ```
 -->
-#### Q5. Find all files less than 1 KB size in '/var'.
+#### Q6. Find all files less than 1 KB size in '/var'.
 <!-- 
 ```bash
 find /var -type f -size -1k
 ```
 -->
-#### Q6. Find all files ending with ".txt" in the '/root/Documents' directory.
+#### Q7. Find all files ending with ".txt" in the '/root/Documents' directory.
 <!-- 
 ```bash
 find /root/Documents -name *.txt
 ```
 -->
-#### Q7. Copy all files owned by "user" to "/root/dir".
+#### Q8. Copy all files owned by "user" to "/root/dir".
 <!-- 
 ```bash
 find / -type f -user user -exec cp -a {} /root/dir \;
 ```
 -->
-#### Q8. Copy all files larger than 100 MB to the '/backup' directory.
+#### Q9. Copy all files larger than 100 MB to the '/backup' directory.
 <!-- 
 ```bash
 find / -type f -size +100M -exec cp -a {} /backup \;
 ```
 -->
-#### Q9. Copy all files in the "/home/user/documents" directory that have read and write permissions for the owner, read-only permission for the group, and no permission for others to the "/secure_backup" directory.
+#### Q10. Copy all files in the "/home/user/documents" directory that have read and write permissions for the owner, read-only permission for the group, and no permission for others to the "/secure_backup" directory.
 <!-- 
 ```bash
 find /home/user/documents -perm 640 -exec cp -a {} /secure_backup \;
 ```
 -->
-
 ## script shell
-- Le fichier doit avoir l'extension `.sh` .
-- doit commencer par le shebang : `#!/bin/bash` ou `#!/bin/sh`.
+- Le fichier doit avoir l'extension `.sh` . (indique que le fichier est un script shell)
+- doit commencer par le shebang : `#!/bin/bash` ou `#!/bin/sh`. ( indique au système quel interpréteur utiliser pour exécuter le script.)
 - afficher du texte: `echo “texte”`
 - entrer une variable : `read variable`
 - appel variable: `$variable`
+- Variable d'environnement pour le répertoire personnel de l'utilisateur actuel: `$HOME`
+- Variable d'environnement pour le nom d'utilisateur de l'utilisateur actuel : `$USER`
+- Variable d'environnement qui affiche L'identifiant de l'utilisateur actuel: `$UID`
+- Variables d'environnement pour la date et l'heure actuelles: `$date`
 - enregistrer des messages dans le journal du système: `logger “texte”`
 - vérifier le texte de journal du système: `journalctl | grep “texte”`
 - pour exécuter les scripts : `bash fichier.sh` ou `sh fichier.sh` ,
 ou `chmod +x fichier.sh` puis `./fichier.sh`.
 
 ## Lab 02
-#### Q10. Ask the user for their name, Greet the user then Log the event in the system logs using a script called greeting.sh 
+#### Q1. display the current date using a script shell.
+#### Q1. display the current date using a script shell.
+
+#### Q3. Ask the user for their name, Greet the user then Log the event in the system logs using a script called greeting.sh 
 <!-- 
 ```bash
 vim greeting.sh

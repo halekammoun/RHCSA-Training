@@ -178,10 +178,23 @@ find /home/user/documents -perm 640 -exec cp -a {} /secure_backup \;
 ou `chmod +x fichier.sh` puis `./fichier.sh`.
 
 ## Lab 02
+#### Q0. display the message hello world!.
+<!-- 
+```bash
+vim hello.sh
+#! /bin/bash
+echo “hello world!”
+bash hello.sh
+-->
 #### Q1. display the current date using a script shell.
-#### Q1. display the current date using a script shell.
-
-#### Q3. Ask the user for their name, Greet the user then Log the event in the system logs using a script called greeting.sh 
+<!-- 
+```bash
+vim date.sh
+#! /bin/bash
+echo “$date”
+bash date.sh
+-->
+#### Q2. Ask the user for their name, Greet the user then Log the event in the system logs using a script called greeting.sh.
 <!-- 
 ```bash
 vim greeting.sh

@@ -1,7 +1,7 @@
 <h1 align="center" style="color: red;">Commandes basiques & Scripts Shell</h1>
 
 ## Introduction
-👋 Dans cette section, nous allons explorer les commandes de base et les scripts shell essentiels pour l'administration système sous Red Hat Enterprise Linux.
+👋 Dans cette section, nous allons explorer quelques commandes de base et les scripts shell essentiels pour la certification.
 <p align="center">
   <img src="images/1_WEIqrLV8aBY-VdKLQjElQg.gif" alt="tree" style="width: 500px;"/>
 </p>
@@ -52,10 +52,16 @@
 
 ## Lab 01
 
-#### Q1. Copy '/etc/passwd' to '/tmp'.
+#### Q0. Copy '/etc/passwd' to '/tmp'.
 <!-- 
 ```bash
 cp /etc/passwd /tmp
+```
+-->
+#### Q1. copy the file /etc/passwd to your home directory and name it mypasswd.
+<!-- 
+```bash
+cp /etc/passwd ~/mypasswd
 ```
 -->
 #### Q2. Copy "/etc/shadow" to "/home/tekup/" and create a new file called "nopass" containing all lines with "!!".

@@ -60,7 +60,7 @@ mkdir course1  cd course1 mkdir course2  cd course2  mkdir course3  cd course3  
 
 #### Q5. Navigate into the LinuxCommands directory and create the following files: file1, file2, file3 and file4.  
 ```bash
-cd ~/LinuxCommands  mkdir file1 file2 file3 file4
+cd ~/LinuxCommands  touch file1 file2 file3 file4
 ```
 or 
 ```bash

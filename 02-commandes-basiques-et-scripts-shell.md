@@ -134,7 +134,7 @@ find /var -type f -size -1k
 
 #### Q7. Find all files ending with ".txt" in the '/root/Documents' directory.
 ```bash
-find /root/Documents -name *.txt
+find /root/Documents -name '*.txt'
 ```
 
 #### Q8. Copy all files owned by "user" to "/root/dir".
@@ -183,7 +183,7 @@ bash hello.sh
 ```bash
 vim date.sh
 #! /bin/bash
-echo “$date”
+echo “$(date)”
 bash date.sh
 ```
 #### Q2. Ask the user for their name, Greet the user then Log the event in the system logs using a script called greeting.sh.
@@ -201,3 +201,4 @@ journalctl | grep user
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
 </p>
+

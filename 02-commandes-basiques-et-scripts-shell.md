@@ -113,7 +113,7 @@ cp /etc/passwd ~/mypasswd
 mkdir /home/tekup
 cp /etc/shadow /home/tekup
 grep '!!' /home/tekup/shadow > nopass
-
+```
 
 #### Q4. Find all lines in the file '/usr/share/dict/words' that contain the string "seismic". Copy all these lines to the file '/root/wordlist'.
 
@@ -172,23 +172,22 @@ ou `chmod +x fichier.sh` puis `./fichier.sh`.
 
 ## Lab 02
 #### Q0. display the message hello world!.
-<!-- 
+
 ```bash
 vim hello.sh
 #! /bin/bash
 echo “hello world!”
 bash hello.sh
--->
+```
 #### Q1. display the current date using a script shell.
-<!-- 
 ```bash
 vim date.sh
 #! /bin/bash
 echo “$date”
 bash date.sh
--->
+```
 #### Q2. Ask the user for their name, Greet the user then Log the event in the system logs using a script called greeting.sh.
-<!-- 
+
 ```bash
 vim greeting.sh
 #! /bin/bash
@@ -198,7 +197,7 @@ echo “hello $nom”s
 logger “user $nom executed the greeting script”
 bash greeting.sh
 journalctl | grep user 
--->
+```
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
 </p>

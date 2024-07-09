@@ -114,7 +114,7 @@ mkdir /home/tekup
 cp /etc/shadow /home/tekup
 grep '!!' /home/tekup/shadow > nopass
 
--->
+
 #### Q4. Find all lines in the file '/usr/share/dict/words' that contain the string "seismic". Copy all these lines to the file '/root/wordlist'.
 
 ```bash

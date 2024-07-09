@@ -4,7 +4,8 @@
 👋 Dans cette section, nous allons vous guider à travers les étapes nécessaires pour installer Red Hat Enterprise Linux et enregistrer votre système.
 
 ## Étapes d'Installation
-
+### 0. lien de VM
+https://www.mediafire.com/file/vckh650ljsd9vjd/RHEL9.zip/file
 ### 1. Créer un Compte sur Red Hat
 Pour commencer, vous devez créer un compte sur le site officiel de Red Hat.
 - Rendez-vous sur [redhat.com](https://www.redhat.com).

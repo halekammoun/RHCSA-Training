@@ -167,7 +167,7 @@ Appliquée à un répertoire, dont tous ses fichiers nouvellement créés auront
 Appliquée à un répertoire, il interdit la suppression des fichiers qu’il contient à tout utilisateur (autre le owner et le root).  
 `chmod o+t dirname`→ appliquer Sticky bit  à un répertoire.  
 
-##Lab 04
+## Lab 04
 
 #### Q0. Create a directory named "test_directory" in your home directory, Ensure that only the owner has the right to read, write, and execute, while others have no access rights, files created in this directory inherit the group too and cannot be deleted only by their owners or root. 
 
@@ -180,7 +180,7 @@ chmod o+t test_directory
 
 ```
 
-##Lab 04
+
 
 #### Q1. You have a sensitive file named "confidential" in your home directory. 
 You want to share this file with the user "friend" allowing them only to read it, and with the group "colleagues" giving them both read and write permissions. you also want to ensure that no one else has access to the file.

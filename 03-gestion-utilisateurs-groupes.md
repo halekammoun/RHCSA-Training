@@ -193,8 +193,7 @@ chmod o+t test_directory
 -->
 
 
-#### Q1. You have a sensitive file named "confidential" in your home directory. 
-You want to share this file with the user "friend" allowing them only to read it, and with the group "colleagues" giving them both read and write permissions. you also want to ensure that no one else has access to the file.
+#### Q1. You have a sensitive file named "confidential" in your home directory. You want to share this file with the user "friend" allowing them only to read it, and with the group "colleagues" giving them both read and write permissions. you also want to ensure that no one else has access to the file.
 
 <!--
 ```bash

@@ -159,13 +159,13 @@ r w x	 r w x 	r w x
 - SUID: 4000 ,(rws --- --- pour rwx --- ---), (rwS --- --- pour rw- --- ---)  
 Une fois que le SUID est appliqué à un fichier ou une commande, le dernier sera exécuté avec les permissions du propriétaire lorsque n'importe quel utilisateur le lance.
 exemple de commande ayant le SUID →  passwd (ls -l /usr/bin/passwd)  
-chmod u+s filename→ appliquer SUID a un fichier 
+`chmod u+s filename`→ appliquer SUID a un fichier 
 - SGID: 2000  ,(--- rws --- pour --- rwx ---), (--- rwS --- pour --- rw- ---)  
 Appliquée à un répertoire, dont tous ses fichiers nouvellement créés auront le même groupe propriétaire
-chmod g+s dirname→ appliquer SGID à un répertoire.  
+`chmod g+s dirname`→ appliquer SGID à un répertoire.  
 - Sticky bit: 1000 ,(--- --- rwt pour --- --- rwx), (--- --- rwT pour — — rw-)  
 Appliquée à un répertoire, il interdit la suppression des fichiers qu’il contient à tout utilisateur (autre le owner et le root).  
-chmod o+t dirname→ appliquer Sticky bit  à un répertoire.  
+`chmod o+t dirname`→ appliquer Sticky bit  à un répertoire.  
 
 ##Lab 04
 

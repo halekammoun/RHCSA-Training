@@ -52,10 +52,137 @@ options:
 - `userdel username` : supprimer un utilisateur.  
 - `userdel -r username` : supprimer un utilisateur avec son répertoire personnel.  
 - `groupdel groupname` : supprimer un groupe.  
-- `chown [options] [newowner][:newgroup] filename` : modifier le propriétaire et le groupe propriétaire d’un fichier
+- `chown [options] [newowner][:newgroup] filename` : modifier le propriétaire et le groupe propriétaire d’un fichier  
 -R : pour un répertoire.  
 - `chown newowner filename` : modifier le propriétaire.  
 - `chown :newgroup filename` : modifier le groupe propriétaire.  
+## Lab 03
+#### Q0.  Every newly created user must have a UID between 1000 and 3000.
+```bash
+vim /etc/login.defs
+UID_MIN                  1000
+UID_MAX                  3000
+
+```
+#### Q1. Create a user named 'student' with the password 'tekup'.
+
+```bash
+useradd student
+passwd student
+
+```
+#### Q2. Set a specific umask=013 for 'student'.
 
 
+```bash
+su - student
+vim .bashrc
+umask 0013
+exit
+su  student
+umask
+
+```
+#### Q3. Assign this user to a secondary group named 'tekup'.
+
+```bash
+groupadd tekup
+usermod -G tekup student
+
+```
+#### Q4. give this user permission to use sudo without a password.
+
+```bash
+echo “student	ALL=(ALL)	NOPASSWD:ALL” >> /etc/sudoers
+or 
+vim /etc/sudoers
+student	ALL=(ALL)	NOPASSWD:ALL
+```
+#### Q5. As the 'student' user, create a file named 'fich'.
+
+```bash
+su - student
+touch fich
+
+```
+#### Q6. Change the group owner of this file to 'tekup'.
+
+```bash
+sudo chown :tekup fich
+```
+## Les droits d'accès  
+read – write – execute  
+r	 w 	x  
+2^2	2^1	2^0  
+4	2	1 → de manière octale  
+user    group  others  
+u 	g 	o → de manière symbolique  
+7 	7	3 → exemple  
+`man chmod`  
+- `chmod [options] permission filename` : modifier les permissions de fichier.  
+exemple:  
+Propriétaire : lire et écrire  
+Groupe : Lire , écrire et exécuter  
+Autres : Lire  
+Mode octal : chmod 674 fichier  
+Mode symbolique : chmod u=rw,g=rwx,o=r filename  
+ajouter x pour user: chmod u+x filename  
+retirer x pour qroup: chmod g-x filename  
+0666 → Est la permission maximum pour un fichier  
+0777 → Est la permission maximum pour un répertoire  
+0022 → Est la valeur de Umask par défaut  
+- `umask new_value` : modifier temporairement le umask
+- `echo “umask new_value” /etc/profile` → modifier le umask de manière persistante, s'appliquera à tous les utilisateurs lorsqu'ils se connectent au système.  
+- `echo “umask new_value” ~/.bashrc` → modifier le umask de manière persistante, s'appliquera à un utilisateur spécifique lorsqu'il se connectent au système.  
+permission maximum(777) - mask =permission par défaut  
+mask= permission maximum(777) - permission par défaut  
+
+
+
+exemples:  
+- Quelles seront les permissions par défaut pour un fichier si le mask est 013?  
+r w x	 r w x 	r w x  
+- - -	 - - x	 - w x   
+----------------------------------  
+= rw-	 rw-	r --  
+- Quelles seront les permissions par défaut pour un dossier si le mask est 013?  
+r w x	 r w x 	r w x  
+- - -	 - - x	 - w x  
+----------------------------------  
+= rwx	 rw-	r --  
+Droits spéciaux:  
+SUID: 4000 ,(rws --- --- pour rwx --- ---), (rwS --- --- pour rw- --- ---)  
+Une fois que le SUID est appliqué à un fichier ou une commande, le dernier sera exécuté avec les permissions du propriétaire lorsque n'importe quel utilisateur le lance.
+exemple de commande ayant le SUID →  passwd (ls -l /usr/bin/passwd)  
+chmod u+s filename→ appliquer SUID a un fichier 
+SGID: 2000  ,(--- rws --- pour --- rwx ---), (--- rwS --- pour --- rw- ---)  
+Appliquée à un répertoire, dont tous ses fichiers nouvellement créés auront le même groupe propriétaire
+chmod g+s dirname→ appliquer SGID à un répertoire.  
+Sticky bit: 1000 ,(--- --- rwt pour --- --- rwx), (--- --- rwT pour — — rw-)  
+Appliquée à un répertoire, il interdit la suppression des fichiers qu’il contient à tout utilisateur (autre le owner et le root).  
+chmod o+t dirname→ appliquer Sticky bit  à un répertoire.  
+
+##Lab 04
+
+#### Q0. Create a directory named "test_directory" in your home directory, Ensure that only the owner has the right to read, write, and execute, while others have no access rights, files created in this directory inherit the group too and cannot be deleted only by their owners or root. 
+
+```bash
+chmod 3700 test_directory
+or 
+chmod u=rwx,o=- test_directory
+chmod g+s test_directory
+chmod o+t test_directory
+
+```
+
+##Lab 04
+
+#### Q1. You have a sensitive file named "confidential" in your home directory. 
+You want to share this file with the user "friend" allowing them only to read it, and with the group "colleagues" giving them both read and write permissions. you also want to ensure that no one else has access to the file.
+
+
+```bash
+setfacl -m u:friend:r,g:colleagues:rw,o:- confidential 
+
+```
 

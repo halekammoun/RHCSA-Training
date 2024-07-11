@@ -143,7 +143,7 @@ retirer x pour qroup: chmod g-x filename
 0777 → Est la permission maximum pour un répertoire  
 0022 → Est la valeur de Umask par défaut  
 - `umask new_value` : modifier temporairement le umask
-- `echo “umask new_value” /etc/profile` → modifier le umask de manière persistante, s'appliquera à tous les utilisateurs lorsqu'ils se connectent au système.  
+- `echo “umask new_value” /etc/login.defs` → modifier le umask de manière persistante, s'appliquera à tous les utilisateurs lorsqu'ils se connectent au système.  
 - `echo “umask new_value” ~/.bashrc` → modifier le umask de manière persistante, s'appliquera à un utilisateur spécifique lorsqu'il se connectent au système.  
 permission maximum(777) - mask =permission par défaut  
 mask= permission maximum(777) - permission par défaut  

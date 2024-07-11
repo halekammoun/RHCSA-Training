@@ -156,7 +156,7 @@ exemples:
 r w x	 r w x 	r w x  
 - - -	 - - x	 - w x   
 ----------------------------------  
-= rw-	 rw-	r --  
+= rwx	 rw-	r --  
 ```
 
 - Quelles seront les permissions par défaut pour un dossier si le mask est 013? 

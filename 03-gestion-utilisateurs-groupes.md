@@ -141,16 +141,21 @@ mask= permission maximum(777) - permission par défaut
 
 exemples:  
 - Quelles seront les permissions par défaut pour un fichier si le mask est 013?  
+```bash
 r w x	 r w x 	r w x  
 - - -	 - - x	 - w x   
 ----------------------------------  
 = rw-	 rw-	r --  
-- Quelles seront les permissions par défaut pour un dossier si le mask est 013?  
+```
+
+- Quelles seront les permissions par défaut pour un dossier si le mask est 013? 
+```bash 
 r w x	 r w x 	r w x  
 - - -	 - - x	 - w x  
 ----------------------------------  
 = rwx	 rw-	r --  
-Droits spéciaux:  
+```
+## Droits spéciaux:  
 SUID: 4000 ,(rws --- --- pour rwx --- ---), (rwS --- --- pour rw- --- ---)  
 Une fois que le SUID est appliqué à un fichier ou une commande, le dernier sera exécuté avec les permissions du propriétaire lorsque n'importe quel utilisateur le lance.
 exemple de commande ayant le SUID →  passwd (ls -l /usr/bin/passwd)  

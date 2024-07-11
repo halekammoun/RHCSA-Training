@@ -181,7 +181,7 @@ Appliquée à un répertoire, il interdit la suppression des fichiers qu’il co
 ## Lab 04
 
 #### Q0. Create a directory named "test_directory" in your home directory, Ensure that only the owner has the right to read, write, and execute, while others have no access rights, files created in this directory inherit the group too and cannot be deleted only by their owners or root. 
-<!--
+
 ```bash
 chmod 3700 test_directory
 or 
@@ -190,17 +190,17 @@ chmod g+s test_directory
 chmod o+t test_directory
 
 ```
--->
+
 
 
 #### Q1. You have a sensitive file named "confidential" in your home directory. You want to share this file with the user "friend" allowing them only to read it, and with the group "colleagues" giving them both read and write permissions. you also want to ensure that no one else has access to the file.
 
-<!--
+
 ```bash
 setfacl -m u:friend:r,g:colleagues:rw,o:- confidential 
 
 ```
--->
+
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
 </p>

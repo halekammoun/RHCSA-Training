@@ -9,7 +9,7 @@ La commande `crontab` permet de programmer des tâches pour qu'elles s'exécuten
 ### Commandes Principales
 - `cat /etc/crontab` : pour voir les détails de la configuration actuelle.
 <p align="center">
-  <img src="images/Capture.JPG" alt="cap" style="width: 100px;"/>
+  <img src="images/Capture.JPG" alt="cap" style="width: 500px;"/>
 </p>
 - `crontab -e` : pour éditer la crontab de l'utilisateur actuellement connecté.
 - `crontab -e -u username` : pour éditer la crontab d'un utilisateur spécifique.

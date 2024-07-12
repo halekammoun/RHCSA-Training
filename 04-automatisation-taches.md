@@ -11,8 +11,8 @@ La commande `crontab` permet de programmer des tâches pour qu'elles s'exécuten
 <p align="center">
   <img src="images/Capture.JPG" alt="cap" style="width: 800px;"/>
 </p>
-- `crontab -e` : pour éditer la crontab de l'utilisateur actuellement connecté.
-- `crontab -e -u username` : pour éditer la crontab d'un utilisateur spécifique.
+- `crontab -e` : pour éditer la crontab de l'utilisateur actuellement connecté.  
+- `crontab -e -u username` : pour éditer la crontab d'un utilisateur spécifique.  
 
 ### Intervalles de Temps
 - `@hourly` : chaque heure.
@@ -31,32 +31,33 @@ La commande `crontab` permet de programmer des tâches pour qu'elles s'exécuten
 
 ## Lab 05
 #### Q0. Supprimer le contenu de /tmp chaque mercredi à 15h15 et à 12h30 pour user1.
-<!--
+
 ```bash
 crontab -e
 30,15 12,15 * * 3 rm -rf /tmp
 ```
--->
+
 #### Q1. executer le script backup.sh chaque redémarrage de systeme  
-<!--
+
 ```bash
 @reboot bash backup.sh
--->
+```
 #### Q2. écrire le message “hello” dans hello.txt chaque 3 minutes  
-<!--
+
 ```bash
 crontab -e
 */3 * * * * echo “hello” >> hello.txt
--->
-#### Q3.En tant qu’utilisateur natasha, planifiez une tâche qui affiche toutes les 5 minutes le texte suivant dans les messages logs  «Examen en cours ».  
-<!--
+```
+#### Q3.En tant qu’utilisateur natasha, planifiez une tâche qui affiche toutes les 5 minutes le texte suivant d
 ```bash
 crontab -e -u natasha
 */5 * * * * logger “Examen en cours”
--->
+```
+
 #### Q4. Configurez une tâche pour l’utilisateur natasha devant s’exécuter chaque 2 minutes du lundi au vendredi pour insérer la phrase « Examen EX200 en cours » dans les logs.  
-<!--
+
 ```bash
 crontab -e -u natasha
 */2  * * * 1-5  logger “Examen EX200 en cours”
--->
+```
+

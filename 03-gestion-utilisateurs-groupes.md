@@ -209,26 +209,74 @@ setfacl -m u:friend:r,g:colleagues:rw,o:- confidential
 
 ```bash
 Q1. create groups redhat and tekup .  
+groupadd redhat  
+groupadd tekup  
 Q2. create users : foulen1, flouen2 and foulen3 as follow :  
 - all users have their password set to “thuctive”  
 - foulen1 has 1300 as uid and a comment “guest”  
 - foulen2 has “/bin/bash” as a shell  
 - foulen3 has a home directory “/home/test” and uid of 1301  
 - foulen1 has tekup as his primary group, foulen2 has redhat as primary group and tekup as secondary, foulen3 has both groups as secondary  
+useradd foulen1  
+useradd foulen2  
+useradd foulen3  
+passwd foulen1 	passwd foulen2 	passwd foulen3  
+usermod -u 1300 -c guest foulen1  
+usermod -s /bin/bash foulen2  
+usermod -u 1301 -d /home/test foulen1  
+tail -3 /etc/passwd  
+usermod -g tekup foulen1  
+usermod -g redhat -G tekup foulen2  
+usermod -G redhat -aG tekup foulen2  
+groups foulen1 	groups foulen2 	groups foulen3  
 Q3. foulen2’s  account will expire on april 5 th 2030, has a minimum password age of 5, 7 days of warning.  
+chage -E 2030-04-05 -m 5 -w 7 foulen2  
 Q4. foulen2’s  password will expire on march 23 th 2024.  
+chage -M (compter de ce jour vers 5 avril 2030) foulen2  
+chage -l foulen2  
 Q5. create directory “/home/tekup”. owned by root and its group is redhat. redhat members has access (r+x) permission, others have none ,files created in this directory inherit the group too and cannot be deleted only by their owners or root.  
+mkdir /home/tekup  
+chown :redhat /home/tekup  
+chmod g=r /home/tekup  
+chmod o=- /home/tekup  
+chmod g+s,o+t /home/tekup  
+
 Q6. copy ‘/etc/passwd’ under ‘/tmp’. foulen1 has the right to read and change it foulen2 has none.  
+cp /etc/passwd /tmp/  
+setfacl -m u:foulen1:rw,u:foulen2:- /tmp/  
+
 Q7. copy all files owned by “user” under “/opt/dir.  
+find / -type f -user nom exec cp -a {} /opt/dir \ ;  
 Q8. copy “/etc/shadow” under “/home/tekup/”, create a new file called nopass containing all lines that have ”!!” in them.  
+cp /etc/shadow /home/tekup/  
+ grep “\!!” /home/tekup/shadow > nopass  
 Q9. All users passwords expire after 500 days.  
+vim /etc/login.defs  
+PASS_MAX_DAYS 500  
+
 Q10. All password should contain at least one capital letter and two digits.  
+vim /etc/security/pwquality.conf  
+ucredit = -1  
+dcredit = -2  
+
 Q11. Set the minimum password length to 9.  
+vim /etc/security/pwquality.conf  
+minlen = 9  
+
 Q12. Modify foulen3 user account's so the password expires after 20 days.  
+sudo chage -M 20 foulen3  
+chage -l foulen3  
+
 Q13. Configure the necessary settings so that all files created by the user foulen2 will have the following permissions: r--rw-r--.  
+vim /home/foulen2/.bash_profile  
+umask 202  
+en effet : max:777 - mask = def → max - def =mask  
+   rwx rwx rwx  -  
+   r-- rw- r--   
+= -wx --x -wx = 313  
+
 Q14. now make the user 'foulen1' inactive.
-
-
+usermod -L foulen1  
 ```
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>

@@ -48,7 +48,8 @@ crontab -e
 crontab -e
 */3 * * * * echo “hello” >> hello.txt
 ```
-#### Q3.En tant qu’utilisateur natasha, planifiez une tâche qui affiche toutes les 5 minutes le texte suivant d
+#### Q3.En tant qu’utilisateur natasha, planifiez une tâche qui affiche toutes les 5 minutes le texte suivant dans les messages logs  «Examen en cours ».
+
 ```bash
 crontab -e -u natasha
 */5 * * * * logger “Examen en cours”

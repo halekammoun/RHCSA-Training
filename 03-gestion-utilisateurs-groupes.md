@@ -200,7 +200,31 @@ chmod o+t test_directory
 setfacl -m u:friend:r,g:colleagues:rw,o:- confidential 
 
 ```
+<h1 align="center" style="color: red;">Lab évaluation 01</h1>
 
+```bash
+Q1. create groups redhat and tekup .  
+Q2. create users : foulen1, flouen2 and foulen3 as follow :  
+- all users have their password set to “thuctive”  
+- foulen1 has 1300 as uid and a comment “guest”  
+- foulen2 has “/bin/bash” as a shell  
+- foulen3 has a home directory “/home/test” and uid of 1301  
+- foulen1 has tekup as his primary group, foulen2 has redhat as primary group and tekup as secondary, foulen3 has both groups as secondary  
+Q3. foulen2’s  account will expire on april 5 th 2030, has a minimum password age of 5, 7 days of warning.  
+Q4. foulen2’s  password will expire on march 23 th 2024.  
+Q5. create directory “/home/tekup”. owned by root and its group is redhat. redhat members has access (r+x) permission, others have none ,files created in this directory inherit the group too and cannot be deleted only by their owners or root.  
+Q6. copy ‘/etc/passwd’ under ‘/tmp’. foulen1 has the right to read and change it foulen2 has none.  
+Q7. copy all files owned by “user” under “/opt/dir.  
+Q8. copy “/etc/shadow” under “/home/tekup/”, create a new file called nopass containing all lines that have ”!!” in them.  
+Q9. All users passwords expire after 500 days.  
+Q10. All password should contain at least one capital letter and two digits.  
+Q11. Set the minimum password length to 9.  
+Q12. Modify foulen3 user account's so the password expires after 20 days.  
+Q13. Configure the necessary settings so that all files created by the user foulen2 will have the following permissions: r--rw-r--.  
+Q14. now make the user 'foulen1' inactive.
+
+
+```
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
 </p>

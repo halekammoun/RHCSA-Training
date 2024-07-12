@@ -230,7 +230,7 @@ usermod -g redhat -G tekup foulen2
 usermod -G redhat -aG tekup foulen2  
 groups foulen1 	groups foulen2 	groups foulen3  
 Q3. foulen2’s  account will expire on april 5 th 2030, has a minimum password age of 5, 7 days of warning.  
-chage -E 2030-04-05 -m 5 -w 7 foulen2  
+chage -E 2030-04-05 -m 5 -W 7 foulen2  
 Q4. foulen2’s  password will expire on march 23 th 2024.  
 chage -M (compter de ce jour vers 5 avril 2030) foulen2  
 chage -l foulen2  

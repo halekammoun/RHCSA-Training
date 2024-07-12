@@ -3,7 +3,7 @@
 ## Introduction
 👋 Dans cette section, nous allons explorer comment automatiser des tâches en utilisant la commande `crontab`.
 
-## Théorie
+
 La commande `crontab` permet de programmer des tâches pour qu'elles s'exécutent automatiquement à des intervalles réguliers.
 
 ### Commandes Principales
@@ -29,7 +29,7 @@ La commande `crontab` permet de programmer des tâches pour qu'elles s'exécuten
 - `*` : chaque unité.
 - `*/z` : chaque z unités.
 
-## Pratique
+## Lab 05
 #### Q0. Supprimer le contenu de /tmp chaque mercredi à 15h15 et à 12h30 pour user1.
 <!--
 ```bash

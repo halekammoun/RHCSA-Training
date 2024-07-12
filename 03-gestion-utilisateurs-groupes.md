@@ -177,6 +177,11 @@ Appliquée à un répertoire, dont tous ses fichiers nouvellement créés auront
 - Sticky bit: 1000 ,(--- --- rwt pour --- --- rwx), (--- --- rwT pour — — rw-)  
 Appliquée à un répertoire, il interdit la suppression des fichiers qu’il contient à tout utilisateur (autre le owner et le root).  
 `chmod o+t dirname`→ appliquer Sticky bit  à un répertoire.  
+## les ACLs:
+`getfacl filename` → afficher les ACLs d’un fichier.  
+`setfacl -m u:username:perm,g:groupname:perm,o:perm filename` → positionner les ACLs; pour donner un droit de permission d’un utilisateur spécifique ou un  groupe spécifique.  
+`setfacl -b filename` → retirer les acls.  
+
 
 ## Lab 04
 

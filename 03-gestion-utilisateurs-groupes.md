@@ -200,7 +200,7 @@ chmod o+t test_directory
 setfacl -m u:friend:r,g:colleagues:rw,o:- confidential 
 
 ```
-<h1 align="center" style="color: red;">Lab évaluation 01</h1>
+<h1 align="center" style="color: red;">Lab d'évaluation 01</h1>
 
 ```bash
 Q1. create groups redhat and tekup .  

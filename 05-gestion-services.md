@@ -5,7 +5,7 @@
 ## Service SSHD:
 ### théorie:
 <p align="center">
-  <img src="images/ssh.JPG" alt="cap" style="width: 800px;"/>
+  <img src="images/ssh.JPG" alt="cap" style="width: 600px;"/>
 </p>  
 En termes simples, le SSH permet à un utilisateur de se connecter à un autre ordinateur de manière sécurisée, comme s'il était physiquement présent devant cet ordinateur. Il utilise une cryptographie forte pour sécuriser la communication entre les deux machines, ce qui signifie que les données échangées, y compris les identifiants et les commandes, sont protégées contre les interceptions.  
 RQ: Ports bien connus : numérotés de 0 à 1023, ils sont associés à des services standardisés comme HTTP (port 80) et SSH (port 22)...  
@@ -16,7 +16,7 @@ RQ: Ports bien connus : numérotés de 0 à 1023, ils sont associés à des serv
 - `sudo systemctl start sshd` → démarrer et activer le service sshd.(machine en tant que serveur SSH ).
 RQ: Chaque service sur Red Hat bénéficie de deux couches de sécurité par défaut qui sont  le Pare-feu (`Firewalld`) & `SELinux` (Security-Enhanced Linux).  
 <p align="center">
-  <img src="images/word-image.png" alt="cap" style="width: 800px;"/>
+  <img src="images/word-image.png" alt="cap" style="width: 600px;"/>
 </p> 
 
 - `firewall-cmd --add-port=22/tcp --permanent`
@@ -50,7 +50,7 @@ on sait que par défaut le port de ssh est 22 on peut le changer:
 ## Service httpd:
 ### théorie:
 <p align="center">
-  <img src="images/web.JPG" alt="cap" style="width: 800px;"/>
+  <img src="images/web.JPG" alt="cap" style="width: 600px;"/>
 </p>  
 Le serveur web stocke tous les fichiers nécessaires à la fourniture du contenu d'un site web, y compris les fichiers pour les pages statiques et les applications pour les pages dynamiques. Le rôle du serveur web est de servir ces fichiers et de gérer les interactions entre le navigateur de l'utilisateur et les ressources du site web.  
 une requête HTTP (GET) est comme une commande passée au serveur pour obtenir un fichier spécifique (dans ce cas, "index.html"), et la réponse HTTP est la manière dont le serveur répond à cette demande, en envoyant le contenu demandé (le fichier HTML dans ce cas) en retour.
@@ -96,7 +96,7 @@ Alors, si vous placez un fichier index.html dans /var/www/html et que votre serv
 ## Service NTP:
 ### théorie:
 <p align="center">
-  <img src="images/ntp.JPG" alt="cap" style="width: 800px;"/>
+  <img src="images/ntp.JPG" alt="cap" style="width: 600px;"/>
 </p> 
 Un serveur NTP est un serveur qui fournit l'heure précise aux ordinateurs clients sur un réseau.  
 Il maintient une horloge précise en se synchronisant régulièrement avec des sources de temps précises, telles que des serveurs de temps atomiques ou GPS.  

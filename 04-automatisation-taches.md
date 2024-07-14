@@ -4,15 +4,16 @@
 👋 Dans cette section, nous allons explorer comment automatiser des tâches en utilisant la commande `crontab`.
 
 
-La commande `crontab` permet de programmer des tâches pour qu'elles s'exécutent automatiquement à des intervalles réguliers.
+La commande `crontab` permet de programmer des tâches pour qu'elles s'exécutent automatiquement à des intervalles réguliers.  
 
 ### Commandes Principales
+- `crontab -e` : pour éditer la crontab de l'utilisateur actuellement connecté.  
+- `crontab -e -u username` : pour éditer la crontab d'un utilisateur spécifique.  
 - `cat /etc/crontab` : pour voir les détails de la configuration actuelle.
 <p align="center">
   <img src="images/Capture.JPG" alt="cap" style="width: 800px;"/>
-</p>
-- `crontab -e` : pour éditer la crontab de l'utilisateur actuellement connecté.  
-- `crontab -e -u username` : pour éditer la crontab d'un utilisateur spécifique.  
+</p>  
+
 
 ### Intervalles de Temps
 - `@hourly` : chaque heure.

@@ -16,7 +16,7 @@ RQ: Ports bien connus : numérotés de 0 à 1023, ils sont associés à des serv
 - `sudo systemctl start sshd` → démarrer et activer le service sshd.(machine en tant que serveur SSH ).
 RQ: Chaque service sur Red Hat bénéficie de deux couches de sécurité par défaut qui sont  le Pare-feu (`Firewalld`) & `SELinux` (Security-Enhanced Linux).  
 <p align="center">
-  <img src="images/word-image.png" alt="cap" style="width: 600px;"/>
+  <img src="images/word-image.png" alt="cap" style="width: 300px;"/>
 </p> 
 
 - `firewall-cmd --add-port=22/tcp --permanent`

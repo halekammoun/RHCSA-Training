@@ -11,6 +11,7 @@ En termes simples, le SSH permet à un utilisateur de se connecter à un autre o
 RQ: Ports bien connus : numérotés de 0 à 1023, ils sont associés à des services standardisés comme HTTP (port 80) et SSH (port 22)...  
 
 ### pratique:
+#### connexion à une autre machine via ssh en utilisant un mot de passe: 
 - `yum install openssh-server` →  installation du serveur SSH (machine en tant que serveur SSH ).
 - `systemctl enable sshd `
 - `sudo systemctl start sshd` → démarrer et activer le service sshd.(machine en tant que serveur SSH ).
@@ -22,21 +23,20 @@ RQ: Chaque service sur Red Hat bénéficie de deux couches de sécurité par dé
 - `firewall-cmd --add-port=22/tcp --permanent`
 - `firewall-cmd --reload`
 - `firewall-cmd --list-ports` → ouvrir le port ssh pour les connexions entrantes sur la machine B(machine en tant que client SSH ).
-- `ssh username@adresse_ip_machine_b` → tester la connexion SSH (machine en tant que client SSH ).  
-#### connexion à une autre machine via ssh en utilisant un mot de passe: 
--  `ssh user_client@address_client ` → (the user must have a password)  
+- `ssh username@adresse_ip_server` → tester la connexion SSH (machine en tant que client SSH ),(the user must have a password).  
 ou  
 - `vim/etc/hosts `  
  `address_client	hostname ` → définir un hostname pour l’adresse ip de chaque machine.  
 - `ssh user_client@hostname `  
 #### connexion à une autre machine via ssh sans mot de passe: 
-Pour autoriser une connexion sans mot de passe il faut générer et configurer les clés SSH sur la machine (A) et les ajouter à l’autre machine, Cela lui permet de reconnaître et d'autoriser les connexions provenant de la machine A.  
+Pour autoriser une connexion sans mot de passe il faut générer et configurer les clés SSH sur la machine (B) et les ajouter à l’autre machine (server), Cela lui permet de reconnaître et d'autoriser les connexions provenant de la machine B.  
 -  `ssh-keygen -t rsa ` → Génération des clés SSH.(sur la machine qui souhaite une connexion sans mot de passe).
--  `ssh-copy-id user@machine_b ` → copie la clé publique de la Machine A vers la Machine B et l'ajoute au fichier authorized_keys dans le répertoire .ssh de l'utilisateur sur la Machine B.
--  `ssh user@machine_b `
+-  `ssh-copy-id user@machine_server ` → copie la clé publique de la Machine B vers la Machine A et l'ajouter au fichier authorized_keys dans le répertoire .ssh de l'utilisateur sur la Machine B.(/home/username/.ssh/authorized_keys
+)  
+-  `ssh user@machine_server `
 #### connexion à une autre machine en utilisant un port autre que 22:  
 on sait que par défaut le port de ssh est 22 on peut le changer:  
-- `ssh user@client_address then su -` →  se connecter au client via ssh puis en tant que root.
+partie server:
 - `vim /etc/ssh/sshd_config`
 `port 2222` →  changer le port de 22 à 2222.  
 - `man semanage port`
@@ -44,8 +44,8 @@ on sait que par défaut le port de ssh est 22 on peut le changer:
 - `firewall-cmd --permanent --add-port=2222/tcp`
 - `firewall-cmd --reload` → ajouter le port dans le firewall.  
 - `systemctl restart sshd` →  restart the service.  
-- `exit then exit then`
-- `ssh user@client_address -p 2222` →  se connecter avec le nv port.
+partie client:
+- `ssh user@server_address -p 2222` →  se connecter en utilisant le nv port.
 
 ## Service httpd:
 ### théorie:

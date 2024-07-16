@@ -4,7 +4,7 @@
 👋 Dans cette section, nous allons explorer comment archiver et compresser les répertoires dans un environnement Redhat Linux.
 ### théorie:
 <p align="center">
-  <img src="images/Cap.JPG" alt="cap" style="width: 800px;"/>
+  <img src="images/Cap.JPG" alt="cap" style="width: 400px;"/>
 </p> 
 
 - `tar -cvf archivename.tar répertoire` → réunir les fichiers dans un seul gros fichier appelé archive.  (étape 1)
@@ -20,17 +20,23 @@ tu peux faire les deux étapes simultanément (archivage+compression):
 - `ls -lh` → pour vérifier la taille
 ### pratique:
 #### Q0. Create an archive named "documents.tar.gz" containing all files of the "/home/user/documents" directory.
+<!--
 ```bash
 tar -cvzf document.tar.gz /home/user/documents
 ```
-#### Q1. Compress the entire "/var/log" directory into a file named "logs_backup.tar.bz2"
+-->
+#### Q1. Compress the entire "/var/log" directory into a file named "logs_backup.tar.bz2".
+<!--
 ```bash
 tar -cvjf logs_backup.tar.bz2 /var/log
 ```
+-->
 #### Q2. Make a compressed backup of the "/etc" directory and save it as "etc_backup.tar.gz" .
+<!--
 ```bash
 tar -cvzf etc_backup.tar.gz /etc
 ```
+-->
 
 
 

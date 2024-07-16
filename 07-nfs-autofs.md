@@ -38,7 +38,7 @@ configuration?
 - `firewall-cmd --list-all` → to see enabled services
 - `firewall-cmd --add-service=nfs --permanent` → to allow nfs service
 - `firewall-cmd --reload` → to reload firewall rules
--`exportfs -avr` → to export the directory to the client
+-`exportfs -avr` → to export the directory to the client  
 partie client: (must be root: su -)
 - `dnf install nfs-utils` → install the service
 - `mkdir /mount_point`→ create the directory where you will mount the shared_directory

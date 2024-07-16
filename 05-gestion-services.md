@@ -92,7 +92,7 @@ Alors, si vous placez un fichier index.html dans /var/www/html et que votre serv
 `restorecon -R -v /var1/web/html/`  
 - `echo "hello2" >> /var1/web/html/test.html`
 - `systemctl restart httpd`
-- `curl localhost/test.html` ou `curl  http://@iphost/test.html`
+- `curl localhost/test.html` ou `curl  http://@iphost/test.html`  
 (si n’est pas fonctionné chown -R apache:apache /var1)
 
 

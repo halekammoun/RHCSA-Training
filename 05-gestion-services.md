@@ -74,9 +74,9 @@ Alors, si vous placez un fichier index.html dans /var/www/html et que votre serv
 `listen <nv_port>`
 - `man semanage port`
 `semanage port -a -t http_port_t -p tcp <nv_port>` → ajouter le nouveau port a selinux.
-- `firewall-cmd --permanent --add-port=<nv_port>/tcp`
-`firewall-cmd --reload` → ajouter le port dans le firewall 
-`systemctl restart httpd` → changer port dans le fichier de config
+- `firewall-cmd --permanent --add-port=<nv_port>/tcp`  
+`firewall-cmd --reload` → ajouter le port dans le firewall  
+`systemctl restart httpd` → changer port dans le fichier de config  
 - `curl localhost:<nv_port>/index.html` → vérifier le nouveau port.
 #### Changer le répertoire par défaut /var/www/html vers /var1/web/html
 - `vim /etc/httpd/conf/httpd.conf`  

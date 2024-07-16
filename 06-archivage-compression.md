@@ -20,23 +20,23 @@ tu peux faire les deux étapes simultanément (archivage+compression):
 - `ls -lh` → pour vérifier la taille
 ## Lab 06
 #### Q0. Create an archive named "documents.tar.gz" containing all files of the "/home/user/documents" directory.
-<!--
+
 ```bash
 tar -cvzf document.tar.gz /home/user/documents
 ```
--->
+
 #### Q1. Compress the entire "/var/log" directory into a file named "logs_backup.tar.bz2".
-<!--
+
 ```bash
 tar -cvjf logs_backup.tar.bz2 /var/log
 ```
--->
+
 #### Q2. Make a compressed backup of the "/etc" directory and save it as "etc_backup.tar.gz" .
-<!--
+
 ```bash
 tar -cvzf etc_backup.tar.gz /etc
 ```
--->
+
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
 </p>

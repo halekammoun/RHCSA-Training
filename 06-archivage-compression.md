@@ -18,7 +18,7 @@ tu peux faire les deux étapes simultanément (archivage+compression):
 - `tar -cvzf répertoire.tar.gz répetoire` → archiver et compresser un répertoire vers gzip.
 - `tar -cvjf répertoire.tar.bz2 répertoire` → archiver et compresser un répertoire vers bzip2.
 - `ls -lh` → pour vérifier la taille
-### pratique:
+## Lab 06
 #### Q0. Create an archive named "documents.tar.gz" containing all files of the "/home/user/documents" directory.
 <!--
 ```bash

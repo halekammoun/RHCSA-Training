@@ -8,6 +8,7 @@
 <p align="center">
   <img src="images/nfs.JPG" alt="cap" style="width: 400px;"/>
 </p> 
+
 file server?  
 un ordinateur responsable du stockage afin que d'autres ordinateurs du même réseau puissent accéder aux fichiers, via Network share: NFS (protocol of Network share in linux)  
 how to use NFS service?  

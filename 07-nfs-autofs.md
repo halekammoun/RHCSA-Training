@@ -28,7 +28,7 @@ configuration?
 `root_squash` → (default) les privilèges de client sont limités même pour le superutilisateur du client.  
 `rw` → the shared directory will be readable and writable for the client. 
 `ro` → the shared directory will be just readable for the client.  
-`sync` → (default)  synchronous connexion; the server waits for data to be physically written to the disk (of client) before responding to the client's write request. 
+`sync` → (default)  synchronous connexion; the server waits for data to be physically written to the disk (of client) before responding to the client's write request.  
 `async` → asynchronous connexion; the NFS server can respond to the client before the data is physically written to the disk.
 - `systemctl restart nfs-server` → restarting the service because we modified its configuration file (/etc/exports)
 - `semanage boolean -l | grep nfs_export_all_ro` → verifying that nfs is allowed to export with ro mode: must be on

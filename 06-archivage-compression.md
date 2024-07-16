@@ -37,6 +37,9 @@ tar -cvjf logs_backup.tar.bz2 /var/log
 tar -cvzf etc_backup.tar.gz /etc
 ```
 -->
+<p style="text-align: right;">
+  <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
+</p>
 
 
 

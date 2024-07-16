@@ -127,3 +127,6 @@ set a time zone:
 - `timedatectl list-timezones`  
 `timedatectl set-timezone <zone>`  
 `timedatectl`
+<p style="text-align: right;">
+  <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
+</p>

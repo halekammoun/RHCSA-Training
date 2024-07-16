@@ -6,7 +6,7 @@
 
 ### théorie:  
 <p align="center">
-  <img src="images/nfs.JPG" alt="cap" style="width: 400px;"/>
+  <img src="images/nfs.JPG" alt="cap" style="width: 700px;"/>
 </p> 
 
 file server?  

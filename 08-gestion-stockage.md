@@ -4,7 +4,7 @@
 👋 Dans cette section, nous allons explorer comment gérer les disques, les partitions, LVM et stratis sous un environnement Redhat Linux.
 ## Disque & Partitions:
 <p align="center">
-  <img src="images/cap1.JPG" alt="cap" style="width: 600px;"/>
+  <img src="images/Cap1.JPG" alt="cap" style="width: 600px;"/>
 </p> 
 
 

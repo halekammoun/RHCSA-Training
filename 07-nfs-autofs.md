@@ -51,7 +51,7 @@ partie client: (must be root: su -)
 
 ### théorie:  
 <p align="center">
-  <img src="images/autofs.png" alt="cap" style="width: 700px;"/>
+  <img src="images/autofs.png" alt="cap" style="width: 400px;"/>
 </p> 
 Autofs?  
 on demand NFS ou montage automatique de répertoire partagé.  

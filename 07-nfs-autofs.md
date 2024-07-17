@@ -56,8 +56,11 @@ partie client: (must be root: su -)
 </p> 
 
 Autofs?  
+
 on demand NFS ou montage automatique de répertoire partagé.  
 Autofs permet un montage automatique à la demande des systèmes de fichiers, tels que les partages NFS, lorsque les utilisateurs accèdent à des répertoires spécifiques. Cela contribue à optimiser l'utilisation des ressources système en ne montant les systèmes de fichiers que lorsque nécessaire.  
+server → exports  
+client → auto mount (auto.master & auto.misc)  
 Use case: to share the home directory (server) so its user can use it when he create the session (client).  
 Q0. Create a user named john on the two machines with uid 2001. His home directory on the server is named /host/john. It will be mounted on /host/john with Autofs when john connects.  
 NB:the user in the server must have a base directory, the client must not have a directory :for testing.  

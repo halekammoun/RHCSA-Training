@@ -88,29 +88,43 @@ Partie client:
 
 
 ```bash
-Lab part 2:
-Create a cron job running as root, starting at 10PM every day and executing the script hello.sh.
-crontab -e
-0 22 * * * bash hello.sh
-Archiver et compressez le répertoire /tmp afin d’obtenir tmp.tgz
-tar -cvzf tmp.tar.gz /tmp
-Un partage NFS a été effectué depuis le serveur domain11.example.com  (192.168.0.24) : 192.168.0.24:/remoteuser/user20.
-Configurez ce partage pour que son répertoire personnel soit monté automatiquement sous /remoteuser/user20. 
-Dans le fichier /etc/passwd, le répertoire de base de l’utilisateur est /remoteuser/user20.
-partie serveur:
-dnf install nfs*
-useradd -u 2222 -b /remoteuser user20 
-echo “/remoteuser 	*(rw,no_root_squash) ” >> /etc/exports
-firewall-cmd --add-service {rpc-bind,mountd,nfs} --permanent
-firewall-cmd --reload
-exportfs -arv
-partie client:
-dnf install nfs-utils
-dnf install autofs
-useradd -M -u 2222 -d /remoteuser/user20 user20
-echo “/remoteuser		/etc/auto.misc” >> /etc/auto.master
-echo “user20 -rw  192.168.0.24:/remoteuser/user20” >> /etc/auto.misc
-systemctl restart autofs
+Q0. Create a cron job running as root, starting at 10PM every day and executing the script hello.sh.  
+crontab -e  
+0 22 * * * bash hello.sh  
+Q2. Make necessary configurations so that httpd runs on port 93 using /tekup as its documentRoot.  
+vim /etc/httpd/conf/httpd.conf  
+firewall-cmd --add-port=93/tcp --permanent  
+firewall-cmd --reload  
+man semanage port  
+semanage port -a -t http_port_t -p tcp 93  
+systemctl restart httpd  
+mkdir -p /tekup/html  
+vim /etc/httpd/conf/httpd.conf  
+man semanage fcontext  
+semanage fcontext -a -t httpd_sys_content_t "/tekup/html(/.*)?"  
+restorecon -R -v /tekup/html  
+systemctl restart httpd  
+echo "on port 93" >> /tekup/html/index.html  
+curl http://localhost:93  
+Q3. Archiver et compressez le répertoire /tmp afin d’obtenir tmp.tgz  
+tar -cvzf tmp.tar.gz /tmp  
+Q4. Un partage NFS a été effectué depuis le serveur domain11.example.com  (192.168.0.24) : 192.168.0.24:/remoteuser/user20.   
+Configurez ce partage pour que son répertoire personnel soit monté automatiquement sous /remoteuser/user20.  
+Dans le fichier /etc/passwd, le répertoire de base de l’utilisateur est /remoteuser/user20.  
+partie serveur:  
+dnf install nfs*  
+useradd -u 2222 -b /remoteuser user20  
+echo “/remoteuser 	*(rw,no_root_squash) ” >> /etc/exports  
+firewall-cmd --add-service {rpc-bind,mountd,nfs} --permanent  
+firewall-cmd --reload  
+exportfs -arv  
+partie client:  
+dnf install nfs-utils  
+dnf install autofs  
+useradd -M -u 2222 -d /remoteuser/user20 user20  
+echo “/remoteuser		/etc/auto.misc” >> /etc/auto.master  
+echo “user20 -rw  192.168.0.24:/remoteuser/user20” >> /etc/auto.misc  
+systemctl restart autofs  
 ```
 
 

@@ -49,10 +49,12 @@ partie client: (must be root: su -)
 - `df -h` →  to verify
 ## AutoFS:
 
-### théorie:  
+### théorie: 
+
 <p align="center">
   <img src="images/autofs.png" alt="cap" style="width: 400px;"/>
 </p> 
+
 Autofs?  
 on demand NFS ou montage automatique de répertoire partagé.  
 Autofs permet un montage automatique à la demande des systèmes de fichiers, tels que les partages NFS, lorsque les utilisateurs accèdent à des répertoires spécifiques. Cela contribue à optimiser l'utilisation des ressources système en ne montant les systèmes de fichiers que lorsque nécessaire.  

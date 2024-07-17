@@ -86,16 +86,7 @@ Partie client:
 - `systemctl restart autofs`
 <h1 align="center" style="color: red;">Lab d'évaluation 02</h1>
 
-```bash
-Lab part 2:
-Q1. Create a cron job running as root, starting at 10PM every day and executing the script hello.sh.
-Q2. Make necessary configurations so that httpd runs on port 93 using /tekup as its documentRoot.
-Q3. Archiver et compressez le répertoire /tmp afin d’obtenir tmp.tgz
-Q4. Un partage NFS a été effectué depuis le serveur domain11.example.com(192.168.0.24):192.168.0.24:/remoteuser/user20.  
-Configurez ce partage pour que son répertoire personnel soit monté automatiquement sous /remoteuser/user20.  
-Q5. Dans le fichier /etc/passwd, le répertoire de base de l’utilisateur est /remoteuser/user20.
-```
-<!--
+
 ```bash
 Lab part 2:
 Create a cron job running as root, starting at 10PM every day and executing the script hello.sh.
@@ -122,7 +113,6 @@ echo “user20 -rw  192.168.0.24:/remoteuser/user20” >> /etc/auto.misc
 systemctl restart autofs
 ```
 
--->
 
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>

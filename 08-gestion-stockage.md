@@ -120,6 +120,7 @@ mkfs.xfs /dev/vol0/lv0
 echo “/dev/vol0/lv0		/cms		xfs	defaults 0 0” >> /etc/fstab
 ```
 #### Q1. Create a Logical Volume Lvi with 60 extents ;Volume Group Vgi with 16MB extent size Mount it permanently under /record with file system ext3.
+<!--
 créer partition plus que 60*16 (/dev/sda2)
 ```bash 
 vgcreate -s 16M vgi /dev/sda2
@@ -129,6 +130,7 @@ mkdir /record
 echo “/dev/vgi/lvi    /record ext3    defaults 0 0” >> /etc/fstab
 mount -a
  ```
+ -->
 <!--
 #### Q2. Resize the LV named 'lv0'=152M so that it falls within the range of 200MB to 300MB.
 création de lv0:

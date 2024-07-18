@@ -120,7 +120,7 @@ mkfs.xfs /dev/vol0/lv0
 echo “/dev/vol0/lv0		/cms		xfs	defaults 0 0” >> /etc/fstab
 ```
 #### Q1. Create a Logical Volume Lvi with 60 extents ;Volume Group Vgi with 16MB extent size Mount it permanently under /record with file system ext3.
-<!--
+
 créer partition plus que 60*16 (/dev/sda2)
 ```bash 
 vgcreate -s 16M vgi /dev/sda2
@@ -130,14 +130,11 @@ mkdir /record
 echo “/dev/vgi/lvi    /record ext3    defaults 0 0” >> /etc/fstab
 mount -a
  ```
- -->
-<!--
 #### Q2. Resize the LV named 'lv0'=152M so that it falls within the range of 200MB to 300MB.
 création de lv0:
 ```bash 
 fdisk /dev/sda then +156M (152+4PE) → vgcreate vg /dev/sda1 → 
 lvcreate -L 152M -n lv0 vg
-``` 
 corrigé:
 combien de PE tel que max=300: lvextend -l ? /dev/vg/lv0
 max-152=300-152=148
@@ -148,5 +145,87 @@ NB: partition → vgcreate/vgextend réduit une PE
 fdisk /dev/sda then +152M(148+4) → on obtient /dev/sda2 :152
 vgextend vg /dev/sda2 → (la vg est étendu de 152-4=148)
 lvextend -L +148M /dev/vg/lv0 ou lvextend -l 37 /dev/vg/lv0
+``` 
+## Gestion avancée du stockage (Stratis) 
 
--->
+### théorie:
+
+- Un pool de stockage combine plusieurs périphériques de bloc pour former une unité de stockage logique unique.(+1G)
+- Le pool est ensuite utilisé pour créer un système de fichiers mince, où l'espace disque est alloué au fur et à mesure de l'ajout de données: grows as the data is added, ce qui évite la préallocation inutile d'espace.(xfs required)  
+snapshot: une capture instantanée d'un système de fichiers.  
+<p align="center">
+  <img src="images/Cre.JPG" alt="cap" style="width: 600px;"/>
+</p> 
+
+- `dnf install stratis-cli`
+- `dnf install stratisd`
+- `systemctl enable --now stratisd`
+- `wipefs -a /dev/sda` →effacement des métadonnées (si les périphériques spécifiés étaient précédemment utilisés par LVM ou un autre système de stockage)  
+- `stratis pool create name_of_pool /dev/name_disk… `→  pour créer un pool.
+- `stratis pool add-data name_of_pool /dev/name_disk `→  pour étendre un pool.
+- `stratis pool list`→  pour vérifier .
+- `stratis filesystem create name_of_pool name_of_filesystem`→  pour créer un filesystem dans le pool
+- `stratis filesystem snapshot pool-name filesystem-name snapshot-name`→  pour créer un snapshot dans le pool
+- `stratis filesystem list`→  pour vérifier.
+- `mkdir /mount_point`
+(blkid /dev/stratis/pool/filesystem)
+- `“UUID=...	 /mount_point	xfs x-systemd.requires=stratisd.service	0 0” >> /etc/fstab`
+- `mount -a ` →  pour monter le filesystem
+RQ: pour supprimer filesystem.
+- `umount /dev/stratis/name_of_pool/name_of_filesystem`
+- `then comment line in /etc/fstab then mount -a` →  pour démonter le filesystem.
+- `stratis filesystem destroy name_pool name_filesystem`→  pour supprimer le filesystem.
+- `stratis pool destroy name_pool`→  pour supprimer le pool.
+<h1 align="center" style="color: red;">Lab d'évaluation 03</h1>
+
+
+```bash
+Q0. Une espace swap de 1Go doit être configuré sur le serveur de manière persistante.
+création partition de taille 1G: 
+fdisk /dev/sda then n then lastsector: +1G then w
+changer le type de partition en swap:
+fdisk /dev/sda then t then choose the 1G partition then 82 then w
+mkswap /dev/sda1
+ echo “uuid_of_the_SWAP_partition	none	swap	defaults	0 0” >> /etc/fstab
+swapon -a
+https://www.youtube.com/watch?v=TGSzZpjySww (/etc/fstab problem solved)
+Q1. Montez le volume logique lv0_ext4 de 30 extentions sous /home/lv0 appartenant au groupe de volume vgroups de capacité de 2Go sachant qu’un PE est égale à 64 Mo. (utilisez l’étiquette ext4_vol).
+création partition pour un volume group:
+2G*1024=2048M+PE=2112M
+fdisk /dev/sdb then n then lastsector: +2112M then w
+pvcreate /dev/sdb1
+vgcreate -s 64M vgroups /dev/sdb1
+vgs >> size=2G exact
+lvcreate -l 30 -n lv0_ext4 vgroups
+lvs >> size will be 30*64/1024=1875=<1.88g
+mkfs.ext4 /dev/vgroups/lv0_ext4 
+mkdir /home/lv0
+ echo “/dev/vgroups/lv0_ext4	/home/lv0	ext4	defaults	0 0” >> /etc/fstab
+mount -a
+lsblk
+Q2. Créer un volume logique. Le formater en vfat et le monter automatiquement sous /fatVolume.
+supposons on un volume logique lv et son groupe vg:
+mkdir /fatVolume
+mkfs.vfat /dev/vg/lv
+echo “/dev/vg/lv	/fatVolume	vfat	defaults	0 0” >> /etc/fstab
+mount -a
+lsblk
+Q3. Sur le disque de 5Go, créer un pool startis pool1, puis ajouter un file system fs1 et le monter en permanence sous /mnt/fs1. Ajouter un fichier de taille 1G à ce fs1, puis créer un snapshot snap1 pour ce fs1. Monter snap1 sous /mnt/snap1.
+dnf install stratis-cli
+dnf install stratisd
+systemctl enable --now stratisd
+supposons on a une partition /dev/sdb1 de 5G:
+stratis pool create pool1 /dev/sdb1
+stratis filesystem create pool1 fs1
+dd if=/dev/zero of=/mnt/fs1/fichier bs=1M count=1024
+stratis filesystem snapshot  pool1 fs1 snap1
+mkdir /mnt/snap1
+echo “/dev/stratis/pool1/snap1        /mnt/snap1      xfs     x-systemd.requires=stratisd.service 0 0” >> /etc/fstab
+mount -a
+
+```
+
+
+<p style="text-align: right;">
+  <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
+</p>

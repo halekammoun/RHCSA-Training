@@ -131,8 +131,9 @@ echo “/dev/vgi/lvi    /record ext3    defaults 0 0” >> /etc/fstab
 mount -a
  ```
 #### Q2. Resize the LV named 'lv0'=152M so that it falls within the range of 200MB to 300MB.
-création de lv0:
+
 ```bash 
+création de lv0:
 fdisk /dev/sda then +156M (152+4PE) → vgcreate vg /dev/sda1 → 
 lvcreate -L 152M -n lv0 vg
 corrigé:

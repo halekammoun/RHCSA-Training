@@ -82,7 +82,7 @@ RQ: par défaut si on crée le vg un petit pourcentage sera réservé pour les m
 monter le logical volume:
 - `mkdir /mount_point` →  créer le point de montage
 - `mkfs.xfs /dev/vg_name/lv_name` →  pour donner un filesystem: formater  lv.
-- `echo “/dev/vg_name/lv_name	/mount_point	xfs	defaults	0 0” >> /etc/fstab then mount -a` →  pour monter la lv 
+- `echo “/dev/vg_name/lv_name	/mount_point	xfs	defaults	0 0” >> /etc/fstab then mount -a` →  pour monter la lv .  
 On peut aussi étendre la lv: on peut avoir deux cas si l’espace de vg est suffisant et si l’espace de vg est insuffisant.
 ##### si l’espace de vg est suffisant:
 - `vgs` →  pour voir les détails de vg (free size)

@@ -61,7 +61,7 @@ Rq: `podman rm --force  <id_conteneur>`
    `podman ps`
    `podman rmi --force <id_image> `
     `podman images → pour effacer un conteneur. `
-<!--
+
 ``` bash
 useradd webadmin	 passwd webadmin
 loginctl enable-linger webadmin  

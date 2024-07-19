@@ -1,8 +1,7 @@
 <h1 align="center" style="color: red;"> Gestion des Conteneurs</h1>
 
 ## Introduction
-👋 Dans cette section, nous allons explorer comment gérer les conteneurs: rsyslog, http et pdf-coverter.
-théorique:
+👋 Dans cette section, nous allons explorer comment gérer les conteneurs: rsyslog, http et pdf-coverter.  
 
 <p align="center">
   <img src="images/Container.JPG" alt="cap" style="width: 600px;"/>

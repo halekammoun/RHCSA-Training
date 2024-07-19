@@ -47,16 +47,17 @@ restart=on-failure ⇒ restart=always
 reboot machine then (user1) :`systemctl –-user status service_name` → Vérifier le statut du service systemd après reboot.
 `journalctl | grep container-rsyslog.service` → Vérifier le service en tant que root.
 
-<!--
 
-Pratique:
-conteneur Apache:
-Launch an httpd container in Podman from this image registry.access.redhat.com/ubi9/httpd-24 that meets the following conditions:
-The container is started as a rootless container by the user webadmin.
-The container must be accessible on port 8081 of the host.
-The container uses the name web.
-The directory /home/webadmin/html on the host must be mapped to /var/www/html in the container.
-Generate a systemd service for this container (using the path ~/.config/systemd/user).
+
+Pratique:  
+conteneur Apache:  
+Launch an httpd container in Podman from this image registry.access.redhat.com/ubi9/httpd-24 that meets the following conditions:  
+The container is started as a rootless container by the user webadmin.  
+The container must be accessible on port 8081 of the host.  
+The container uses the name web.  
+The directory /home/webadmin/html on the host must be mapped to /var/www/html in the container.  
+Generate a systemd service for this container (using the path ~/.config/systemd/user).  
+<!--
 Rq: podman run -d –-name <container_name> -p <user_port>:<container_port> -v <chemain_local>:<chemain_container>:Z <id_image>→ option p for port mapping.
 Rq: podman rm --force  <id_conteneur>
    podman ps

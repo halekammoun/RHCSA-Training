@@ -51,7 +51,7 @@ reboot machine then (user1) :`systemctl –-user status service_name` → Vérif
 ### conteneur Apache 
 Launch an httpd container in Podman from this image registry.access.redhat.com/ubi9/httpd-24 that meets the following conditions:  
 The container is started as a rootless container by the user webadmin.  
-The container must be accessible on port 8081 of the host.  
+The container must be accessible on port 8081 of the host (container =8080).  
 The container uses the name web.  
 The directory /home/webadmin/html on the host must be mapped to /var/www/html in the container.  
 Generate a systemd service for this container (using the path ~/.config/systemd/user).  

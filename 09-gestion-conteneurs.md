@@ -8,7 +8,7 @@
 </p>  
 
 <p align="center">
-  <img src="docker.png" alt="cap" style="width: 600px;"/>
+  <img src="images/docker.png" alt="cap" style="width: 600px;"/>
 </p> 
 
 - 1) pull a container image: (or build)

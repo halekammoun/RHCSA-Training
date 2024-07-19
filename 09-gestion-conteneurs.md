@@ -18,7 +18,7 @@
   <img src="images/map.JPG" alt="cap" style="width: 600px;"/>
 </p>  
 
-### conteneur Rsyslog:
+### conteneur Rsyslog
 - `dnf install podman container-tools` → installer les packages nécessaires.
 - `useradd user1 then passwd user1` → création user.
 - `NB:loginctl enable-linger user1` → pour permettre aux processus de l'utilisateur de persister même après la déconnexion.
@@ -48,17 +48,17 @@ reboot machine then (user1) :`systemctl –-user status service_name` → Vérif
 `journalctl | grep container-rsyslog.service` → Vérifier le service en tant que root.
 
 
-
-Pratique:  
-conteneur Apache:  
+### conteneur Apache 
 Launch an httpd container in Podman from this image registry.access.redhat.com/ubi9/httpd-24 that meets the following conditions:  
 The container is started as a rootless container by the user webadmin.  
 The container must be accessible on port 8081 of the host.  
 The container uses the name web.  
 The directory /home/webadmin/html on the host must be mapped to /var/www/html in the container.  
 Generate a systemd service for this container (using the path ~/.config/systemd/user).  
-<!--
+
 Rq: podman run -d –-name <container_name> -p <user_port>:<container_port> -v <chemain_local>:<chemain_container>:Z <id_image>→ option p for port mapping.
+<!--
+``` bash
 Rq: podman rm --force  <id_conteneur>
    podman ps
    podman rmi --force <id_image>
@@ -85,6 +85,7 @@ curl localhost:8081
 podman exec -it web bash
 curl localhost:8080
 (root) → journalctlctl | grep container-web.service
+``` 
 
 
 

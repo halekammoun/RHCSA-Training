@@ -89,64 +89,47 @@ curl localhost:8080
 (root) → journalctlctl | grep container-web.service
 ``` 
 
+### conteneur pdfconverter:
 
+Le conteneur "pdf-converter" est conçu pour exécuter un script Python nommé "pdf_converter.py" afin de convertir des fichiers texte en fichiers PDF. L'environnement est configuré pour fonctionner sous Red Hat en utilisant ‘Podman’ plutôt que Docker. Un fichier Dockerfile est fourni, détaillant les étapes nécessaires à la construction de l'image Podman. Une fois cette image construite, le conteneur peut être lancé pour effectuer la conversion des fichiers texte en PDF.  
 
-<!--
+<p align="center">
+  <img src="images/pdf.JPG" alt="cap" style="width: 600px;"/>
+</p>  
 
-
-
-
-
-
-
-
-
-
-
-
-
-conteneur pdfconverter:
-Théorique:
-Le conteneur "pdf-converter" est conçu pour exécuter un script Python nommé "pdf_converter.py" afin de convertir des fichiers texte en fichiers PDF. L'environnement est configuré pour fonctionner sous Red Hat en utilisant ‘Podman’ plutôt que Docker. Un fichier Dockerfile est fourni, détaillant les étapes nécessaires à la construction de l'image Podman. Une fois cette image construite, le conteneur peut être lancé pour effectuer la conversion des fichiers texte en PDF.
-
-/data/input			/data/output
-
-dnf install podman container-tools
-useradd pod
-passwd pod  → création utilisateur pod.
-mkdir -p /data/input /data/output  → création des répertoires locaux.
-chown -R pod:pod /data/* 
-ls -ld /data
-chown pod:pod /data  → changer le propriétaire et le groupe propriétaire de répertoire data et de ses contenus en pod et pod.
-chmod -R 777 /data/*
-or chmod -R 777 /data/input 
-chmod -R 777 /data/output   → ajouter toutes les permissions au répertoires.
-echo “file” > /data/input/file.txt  → ajouter un fichier .txt au répertoire input pour simuler la conversion.
-chown pod:pod /data/input/file.txt  → changer le propriétaire et le groupe propriétaire de fichier en pod et pod.
-loginctl enable-linger pod
-ssh pod@localhost
-wget https://raw.githubusercontent.com/sachinyadav3496/Text-To-
-PDF/master/pdf_converter.py
-wget https://raw.githubusercontent.com/sachinyadav3496/Text-To-
-PDF/master/Dockerfile
-ls
-→ télécharger dockerfile et pdf_converter.py qui sont nécessaires pour la construction de l’image et la conversion.
-podman build -t pdf .
-podman images  → construire l’image depuis dockerfile.
-podman run -d --name pdfconverter -v /data/input:/data/input:Z -v /data/output:/data/output:Z <image_id>
-podman ps  → exécuter le conteneur tel que /data/input en local sera mappé sur /data/input dans le conteneur pour stocker les fichiers .txt, et /data/output en local sera mappé sur/data/output dans le conteneur pour stocker le fichier convertit en pdf.
-mkdir -p ~/.config/systemd/user
-cd .config/systemd/user
-podman generate systemd --name pdfconverter --files --new
-systemctl --user daemon-reload
-systemctl --user enable --now container-pdfconverter.service
-systemctl --user restart --now container-pdfconverter.service
-systemctl --user status container-pdfconverter.service
- → run it as a service.
-podman exec -it pdfconverter bash
-ls /data/output → vérifier que le fichier.txt et convertit en fichier.pdf
+- `dnf install podman container-tools`
+`useradd pod`
+`passwd pod`  → création utilisateur pod.
+- `mkdir -p /data/input /data/output`  → création des répertoires locaux.
+- `chown -R pod:pod /data/* `
+- `ls -ld /data`
+- `chown pod:pod /data`  → changer le propriétaire et le groupe propriétaire de répertoire data et de ses contenus en pod et pod.
+- `chmod -R 777 /data/*`
+or `chmod -R 777 /data/input `
+`chmod -R 777 /data/output `  → ajouter toutes les permissions au répertoires.
+- `echo “file” > /data/input/file.txt`  → ajouter un fichier .txt au répertoire input pour simuler la conversion.
+- `chown pod:pod /data/input/file.txt`  → changer le propriétaire et le groupe propriétaire de fichier en pod et pod.  
+`loginctl enable-linger pod`  
+`ssh pod@localhost`
+- `wget https://raw.githubusercontent.com/sachinyadav3496/Text-To-PDF/master/pdf_converter.py`
+- `wget https://raw.githubusercontent.com/sachinyadav3496/Text-To-PDF/master/Dockerfile`
+- `ls`→ télécharger dockerfile et pdf_converter.py qui sont nécessaires pour la construction de l’image et la conversion.
+- `podman build -t pdf .`
+- `podman images`  → construire l’image depuis dockerfile.
+- `podman run -d --name pdfconverter -v /data/input:/data/input:Z -v /data/output:/data/output:Z <image_id>`
+- `podman ps`  → exécuter le conteneur tel que /data/input en local sera mappé sur /data/input dans le conteneur pour stocker les fichiers .txt, et /data/output en local sera mappé sur/data/output dans le conteneur pour stocker le fichier convertit en pdf.
+- `mkdir -p ~/.config/systemd/user`
+- `cd .config/systemd/user`
+- `podman generate systemd --name pdfconverter --files --new`
+- `systemctl --user daemon-reload`
+- `systemctl --user enable --now container-pdfconverter.service`
+- `systemctl --user restart --now container-pdfconverter.service`
+- `systemctl --user status container-pdfconverter.service` → run it as a service.
+- `podman exec -it pdfconverter bash`
+- `ls /data/output` → vérifier que le fichier.txt et convertit en fichier.pdf
 exit 
 (root) reboot
-journalctl | grep container-pdfconverter.service
- → vérifier le service en tant que root.
--->
+- `journalctl | grep container-pdfconverter.service` → vérifier le service en tant que root.
+<p style="text-align: right;">
+  <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
+</p>

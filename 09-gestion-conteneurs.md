@@ -26,7 +26,7 @@
 - `ssh user1@localhost` → se connecter a user via ssh.`
 - `(podman login registry.redhat.io → se connecter au registry`
 `podman search rsyslog → rechercher une image (exemple rsyslog)`
-`podman pull url_image_searched → rechercher une image pdf-converter.) `
+`podman pull url_image_searched → rechercher une image pdf-converter.) `  
 NB: dans l’examen tu faits: 
 - `wget <path_dockefile> `
 `podman build -t imageName .`
@@ -42,7 +42,6 @@ RQ: the service name will be container-<container_name>.service
 - `vim service_name.service`
 [service]
 restart=on-failure ⇒ restart=always
-wantedBy=multi-user.target
 - `systemctl --user daemon-reload`  → Recharge la configuration du gestionnaire systemd pour l'utilisateur
 - `systemctl --user enable --now service_name`  → Active et démarre le service systemd pour l'utilisateur.
 reboot machine then (user1) :`systemctl –-user status service_name` → Vérifier le statut du service systemd après reboot.

@@ -57,12 +57,12 @@ The directory /home/webadmin/html on the host must be mapped to /var/www/html in
 Generate a systemd service for this container (using the path ~/.config/systemd/user).  
 
 Rq: `podman run -d –-name <container_name> -p <host_port>:<container_port> -v <chemain_local>:<chemain_container>:Z <id_image>→ option p for port mapping.`
+Rq: `podman rm --force  <id_conteneur>`
+   `podman ps`
+   `podman rmi --force <id_image> `
+    `podman images → pour effacer un conteneur. `
 <!--
 ``` bash
-Rq: podman rm --force  <id_conteneur>
-   podman ps
-   podman rmi --force <id_image>
-   podman images → pour effacer un conteneur.
 useradd webadmin	 passwd webadmin
 loginctl enable-linger webadmin  
 mkdir /home/webad/html

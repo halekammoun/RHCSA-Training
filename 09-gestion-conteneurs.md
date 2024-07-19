@@ -6,6 +6,9 @@
 <p align="center">
   <img src="images/Container.JPG" alt="cap" style="width: 600px;"/>
 </p>  
+<p align="center">
+  <img src="docker.png" alt="cap" style="width: 600px;"/>
+</p> 
 
 - 1) pull a container image: (or build)
 - 2) run a container as rootless (user):

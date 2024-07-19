@@ -89,7 +89,7 @@ curl localhost:8080
 (root) → journalctlctl | grep container-web.service
 ``` 
 
-### conteneur pdfconverter:
+### conteneur pdfconverter
 
 Le conteneur "pdf-converter" est conçu pour exécuter un script Python nommé "pdf_converter.py" afin de convertir des fichiers texte en fichiers PDF. L'environnement est configuré pour fonctionner sous Red Hat en utilisant ‘Podman’ plutôt que Docker. Un fichier Dockerfile est fourni, détaillant les étapes nécessaires à la construction de l'image Podman. Une fois cette image construite, le conteneur peut être lancé pour effectuer la conversion des fichiers texte en PDF.  
 

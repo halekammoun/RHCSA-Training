@@ -28,10 +28,11 @@ NB: ne pas oublier d' activer et désactiver l’interface après modification.
 - `tuned-adm active`→ vérifier le profil.
 ## Lab 09
 #### Q0. Set the recommended profile as tuned profile
+``` bash
 tuned-adm recommend → te donne le recommended-profile
 tuned-adm profile recommended-profile
 systemctl restart tuned
 tuned-adm active
-
+``` 
 
 

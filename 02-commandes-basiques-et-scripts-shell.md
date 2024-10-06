@@ -33,25 +33,25 @@
 - `history` : Affiche l'historique des commandes.
 ## Lab 00
 #### Q1. Navigate to your home directory.
-<!--
+
 ```bash
 cd ~
 ```
--->
+
 #### Q2. Create a directory named LinuxCommands.
-<!--
+
 ```bash
 mkdir LinuxCommands
 ```
--->
+
 #### Q3. Navigate to the LinuxCommands directory.
-<!--
+
 ```bash
 cd LinuxCommands
 ```
--->
+
 #### Q4. Create the directory structure course1/course2/course3/course4 while remaining in the LinuxCommands directory.
-<!--
+
 ```bash
 mkdir -p course1/course2/course3/course4
 ```
@@ -59,9 +59,9 @@ or
 ```bash
 mkdir course1  cd course1 mkdir course2  cd course2  mkdir course3  cd course3  mkdir course4  
 ```
--->
+
 #### Q5. Navigate into the LinuxCommands directory and create the following files: file1, file2, file3 and file4.  
-<!--
+
 ```bash
 cd ~/LinuxCommands  touch file1 file2 file3 file4
 ```
@@ -69,20 +69,20 @@ or
 ```bash
 cd ~/LinuxCommands  mkdir file{1,4}
 ```
--->
+
 #### Q6. Determine the owner of the files and their last modification date.
- <!--
+
 ```bash
 ls -l 
 ```
--->
+
 #### Q7. Delete the LinuxCommands directory.
-<!--
+
 ```bash
 cd ..  
 rm -rf 
 ```
--->
+
 - `cp -rf sourceLocation destinationLocation` : Copie un répertoire.
 - `cp sourceLocation destinationLocation` : Copie un fichier.
 - `mv sourceLocation destinationLocation` : Renomme ou déplace un fichier ou un répertoire.

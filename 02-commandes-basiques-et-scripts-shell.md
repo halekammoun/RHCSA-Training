@@ -168,7 +168,9 @@ find /home/user/documents -perm 640 -exec cp -a {} /secure_backup \;
 ou `chmod +x fichier.sh` puis `./fichier.sh`.
 
 ## Lab 02
+
 #### Q0. display the message hello world!.
+
 <!--
 ```bash
 vim hello.sh

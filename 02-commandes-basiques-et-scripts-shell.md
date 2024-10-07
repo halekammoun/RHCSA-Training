@@ -109,9 +109,9 @@ cp /etc/passwd /tmp
 ```bash
 cp /etc/passwd ~/mypasswd
 ```
--->
+
 #### Q3. Copy "/etc/shadow" to "/home/tekup/" and create a new file called "nopass" containing all lines with "!!".
-<!--
+
 ```bash
 mkdir /home/tekup
 cp /etc/shadow /home/tekup

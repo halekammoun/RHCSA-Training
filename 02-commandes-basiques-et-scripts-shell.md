@@ -101,13 +101,11 @@ rm -rf
  cp: copier les fichiers et les répertoires recherchés (cp -a {})  
 ## Lab 01
 #### Q1. Copy '/etc/passwd' to '/tmp'.
-<!--
 ```bash
 cp /etc/passwd /tmp
 ```
--->
 #### Q2. copy the file /etc/passwd to your home directory and name it mypasswd.
-<!--
+
 ```bash
 cp /etc/passwd ~/mypasswd
 ```
@@ -119,52 +117,41 @@ mkdir /home/tekup
 cp /etc/shadow /home/tekup
 grep '!!' /home/tekup/shadow > nopass
 ```
--->
 #### Q4. Find all lines in the file '/usr/share/dict/words' that contain the string "seismic". Copy all these lines to the file '/root/wordlist'.
-<!--
 ```bash
 grep -w seismic /usr/share/dict/words > /root/wordlist
 ```
--->
 #### Q5. Locate all files owned by "user".
- <!--
 ```bash
 find / -type f -user user 2> /dev/null
 ```
--->
 #### Q6. Find all files less than 1 KB size in '/var'.
-<!--
 ```bash
 find /var -type f -size -1k
 ```
--->
 #### Q7. Find all files ending with ".txt" in the '/root/Documents' directory.
-<!--
 ```bash
 find /root/Documents -name '*.txt'
 ```
--->
+
 #### Q8. Copy all files owned by "user" to "/root/dir".
-<!--
 
 ```bash
 find / -type f -user user -exec cp -a {} /root/dir \;
 ```
--->
 #### Q9. Copy all files larger than 100 MB to the '/backup' directory.
-<!--
+
  
 ```bash
 find / -type f -size +100M -exec cp -a {} /backup \;
 ```
--->
 #### Q10. Copy all files in the "/home/user/documents" directory that have read and write permissions for the owner, read-only permission for the group, and no permission for others to the "/secure_backup" directory.
-<!--
+
 
 ```bash
 find /home/user/documents -perm 640 -exec cp -a {} /secure_backup \;
 ```
--->
+
 ## script shell
 - Le fichier doit avoir l'extension `.sh` . (indique que le fichier est un script shell)
 - doit commencer par le shebang : `#!/bin/bash` ou `#!/bin/sh`. ( indique au système quel interpréteur utiliser pour exécuter le script.)

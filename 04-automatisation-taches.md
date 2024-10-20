@@ -34,7 +34,7 @@ La commande `crontab` permet de programmer des tâches pour qu'elles s'exécuten
 #### Q0. Supprimer le contenu de /tmp chaque mercredi à 15h15 et à 12h30 pour user1.
 
 ```bash
-crontab -e
+crontab -e -u user1
 30,15 12,15 * * 3 rm -rf /tmp
 ```
 

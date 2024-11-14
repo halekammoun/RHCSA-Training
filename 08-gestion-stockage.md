@@ -145,7 +145,7 @@ NB: partition → vgcreate/vgextend réduit une PE
 étendre vg: on doit  ajouter une PE a la partition. → création partition:
 fdisk /dev/sda then +152M(148+4) → on obtient /dev/sda2 :152
 vgextend vg /dev/sda2 → (la vg est étendu de 152-4=148)
-lvextend -L +148M /dev/vg/lv0 ou lvextend -l 37 /dev/vg/lv0
+lvextend -L +148M /dev/vg/lv0 ou lvextend -l +37 /dev/vg/lv0 
 ``` 
 ## Gestion avancée du stockage (Stratis) 
 

@@ -59,27 +59,27 @@ options:
 ## Lab 03
 
 #### Q0.  Every newly created user must have a UID between 1000 and 3000.
-<!--
+
 ```bash
 vim /etc/login.defs
 UID_MIN                  1000
 UID_MAX                  3000
 
 ```
--->
+
 
 #### Q1. Create a user named 'student' with the password 'tekup'.
 
-<!--
+
 ```bash
 useradd student
 passwd student
 
 ```
--->
+
 #### Q2. Set a specific umask=013 for 'student'.
 
-<!--
+
 ```bash
 su - student
 vim .bashrc
@@ -89,38 +89,35 @@ su  student
 umask
 
 ```
--->
+
 #### Q3. Assign this user to a secondary group named 'tekup'.
-<!--
+
 ```bash
 groupadd tekup
 usermod -G tekup student
 
 ```
--->
+
 #### Q4. give this user permission to use sudo without a password.
-<!--
+
 ```bash
 echo “student	ALL=(ALL)	NOPASSWD:ALL” >> /etc/sudoers
 or 
 vim /etc/sudoers
 student	ALL=(ALL)	NOPASSWD:ALL
 ```
--->
+
 #### Q5. As the 'student' user, create a file named 'fich'.
-<!--
+
 ```bash
 su - student
 touch fich
 
 ```
--->
 #### Q6. Change the group owner of this file to 'tekup'.
-<!--
 ```bash
 sudo chown :tekup fich
 ```
--->
 ## Les droits d'accès  
 read – write – execute  
 r	 w 	x  

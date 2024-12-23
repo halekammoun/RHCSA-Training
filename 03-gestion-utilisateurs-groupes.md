@@ -150,10 +150,10 @@ mask= permission maximum(777) - permission par défaut
 exemples:  
 - Quelles seront les permissions par défaut pour un fichier si le mask est 013?  
 ```bash
-r w x	 r w x 	r w x  
+r w -	 r w - 	r w -  
 - - -	 - - x	 - w x   
 ----------------------------------  
-= rwx	 rw-	r --  
+= rw-	 rw-	r --  
 ```
 
 - Quelles seront les permissions par défaut pour un dossier si le mask est 013? 

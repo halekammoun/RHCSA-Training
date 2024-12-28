@@ -49,6 +49,9 @@ reboot machine then (user1) :`systemctl –-user status service_name` → Vérif
 
 
 ### conteneur Apache 
+<p align="center">
+  <img src="images/web.JPG" alt="cap" style="width: 600px;"/>
+</p>  
 Launch an httpd container in Podman from this image registry.access.redhat.com/ubi9/httpd-24 that meets the following conditions:  
 The container is started as a rootless container by the user webadmin.  
 The container must be accessible on port 8081 of the host (container =8080).  

@@ -122,7 +122,7 @@ echo “/dev/vol0/lv0		/cms		xfs	defaults 0 0” >> /etc/fstab
 #### Q1. Create a Logical Volume Lvi with 60 extents ;Volume Group Vgi with 16MB extent size Mount it permanently under /record with file system ext3.
 
 créer partition plus que 60*16 (/dev/sda2)
-<!--
+
 ```bash 
 vgcreate -s 16M vgi /dev/sda2
 lvcreate -l 60 -n lvi vgi
@@ -131,9 +131,9 @@ mkdir /record
 echo “/dev/vgi/lvi    /record ext3    defaults 0 0” >> /etc/fstab
 mount -a
  ```
- -->
+
 #### Q2. Resize the LV named 'lv0'=152M so that it falls within the range of 200MB to 300MB.
-<!--
+
 ```bash 
 création de lv0:
 fdisk /dev/sda then +156M (152+4PE) → vgcreate vg /dev/sda1 → 
@@ -149,7 +149,7 @@ fdisk /dev/sda then +152M(148+4) → on obtient /dev/sda2 :152
 vgextend vg /dev/sda2 → (la vg est étendu de 152-4=148)
 lvextend -L +148M /dev/vg/lv0 ou lvextend -l +37 /dev/vg/lv0 
 ``` 
- -->
+
 
 ## Gestion avancée du stockage (Stratis) 
 

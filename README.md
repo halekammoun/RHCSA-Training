@@ -1,7 +1,7 @@
 
 # RHCSA Training
 
-![Red Hat Logo](images/image.png)
+<img src="images/image.png" alt="Red Hat Logo" width="50"/>
 
 ## System Administration under Red Hat Enterprise Linux
 

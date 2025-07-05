@@ -33,16 +33,16 @@ This course is designed to prepare you for the RHCSA (Red Hat Certified System A
 
 Join us on this journey and become a certified Red Hat system administrator! 🚀
 
-## Table of Contents
-1. Installation of Red Hat Enterprise Linux & Registration
-2. Basic Commands & Shell Scripts
-3. User and Group Management
-4. Task Automation
-5. Service Management
-6. Archiving & Compression
-7. NFS & AutoFS
-8. Storage Management
-9. Container Management
-10. BaseOS & AppStream Repositories
-11. Networking
-12. Root Password Reset
+## 📚 Table of Contents
+1. [Installation of Red Hat Enterprise Linux & Registration](./01-installation-and-registration.md)
+2. [Basic Commands & Shell Scripts](./02-basic-commands-and-shell-scripts.md)
+3. [User and Group Management](./03-user-and-group-management.md)
+4. [Task Automation](./04-task-automation.md)
+5. [Service Management](./05-service-management.md)
+6. [Archiving & Compression](./06-archiving-and-compression.md)
+7. [NFS & AutoFS](./07-nfs-autofs.md)
+8. [Storage Management](./08-storage-management.md)
+9. [Container Management](./09-container-management.md)
+10. [BaseOS & AppStream Repositories](./10-baseos-appstream-repositories.md)
+11. [Networking](./11-networking.md)
+12. [Root Password Reset](./12-root-password-reset.md)

@@ -1,26 +1,34 @@
-<h1 align="center" style="color: red;"> BaseOs & AppStream repositories</h1>
+
+# BaseOS & AppStream Repositories
 
 ## Introduction
-👋 Dans cette section, je vous montrerai comment configurer les 'YUM repositories'.  
+👋 In this section, I will show you how to configure 'YUM repositories'.
 
-- `vim /etc/yum.repos.d/BaseOs.repo`
+Edit the repository files:
+
 ```bash
+vim /etc/yum.repos.d/BaseOs.repo
 [BaseOs]
 name=BaseOs
 baseurl=…/BaseOs
 enabled=1
-(gpgcheck=1 (s’il ya un url key) sinon gpgcheck=0
-gpgkey=…(s’il vous donne un url key))
+gpgcheck=1 (if a key URL is provided) otherwise gpgcheck=0
+gpgkey=… (if a key URL is provided)
 ```
-- `vim /etc/yum.repos.d/AppStream.repo`
-``` bash
+
+```bash
+vim /etc/yum.repos.d/AppStream.repo
 [AppStream]
-name= AppStream
+name=AppStream
 baseurl=…/AppStream
 enabled=1
-(gpgcheck=1 (s’il ya un url key) sinon gpgcheck=0
-gpgkey=…(s’il vous donne un url key))
+gpgcheck=1 (if a key URL is provided) otherwise gpgcheck=0
+gpgkey=… (if a key URL is provided)
 ```
-en cas ou vous avez crée les fichiers dans vos machines 
-il suffit de faire les étapes suivantes pour résoudre la probléme:
-`rm -rf /etc/yum.repos.d/*` → `reset the machine` → `subscription-manager refresh`
+
+If you have created the files manually and are facing issues:
+```bash
+rm -rf /etc/yum.repos.d/*
+reset the machine
+subscription-manager refresh
+```

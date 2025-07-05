@@ -1,51 +1,48 @@
 
+# RHCSA Training
 
-<h1 align="center">Formation RHCSA</h1>
-<p align="center">
-  <img src="images/image.png" alt="Red Hat Logo" style="width: 200px;"/>
-</p>
-<h1 align="center">Administration Système sous Red Hat Enterprise Linux</h1>
+![Red Hat Logo](images/image.png)
 
-## Introduction
-👋 Bienvenue dans ce cours sur l'administration système sous Red Hat Enterprise Linux. 
-Ce cours est conçu pour vous préparer à l'examen RHCSA (Red Hat Certified System Administrator)!
+## System Administration under Red Hat Enterprise Linux
 
-🔧 **Pourquoi ce cours ?**
-- **Compétences Pratiques** : Apprenez à installer, configurer et gérer des systèmes Red Hat Enterprise Linux.
-- **Certification Reconnue** : Obtenez la certification RHCSA, reconnue mondialement et très recherchée par les employeurs.
-- **Opportunités de Carrière** : Augmentez vos chances de décrocher des postes d'administrateur système, ingénieur DevOps et bien d'autres.
+### Introduction
+👋 Welcome to this course on system administration with Red Hat Enterprise Linux.  
+This course is designed to prepare you for the RHCSA (Red Hat Certified System Administrator) exam!
 
-📚 **Ce que vous allez apprendre :**
-- **Installation et Configuration** : Déployez et configurez Red Hat Enterprise Linux pour divers environnements.
-- **Gestion des Utilisateurs et des Groupes** : Apprenez à gérer les comptes utilisateurs, les groupes et les permissions.
-- **Automatisation** : Utilisez des scripts Shell pour automatiser les tâches répétitives.
-- **Services Système** : Gérez les services critiques et assurez-vous qu'ils fonctionnent correctement.
-- **Gestion du Stockage et des Réseaux** : Configurez et gérez le stockage, ainsi que les paramètres réseau.
+🔧 **Why this course?**
+- **Practical Skills**: Learn how to install, configure, and manage Red Hat Enterprise Linux systems.
+- **Recognized Certification**: Earn the RHCSA certification, which is globally recognized and highly sought after by employers.
+- **Career Opportunities**: Increase your chances of landing jobs as a system administrator, DevOps engineer, and more.
 
-🎯 **Objectifs du cours :**
-1. Vous fournir les connaissances et les compétences nécessaires pour réussir l'examen RHCSA.
-2. Vous préparer à gérer efficacement des systèmes Red Hat Enterprise Linux dans un environnement professionnel.
-3. Développer votre expertise en administration système à travers des exercices pratiques et des labs interactifs.
+📚 **What you will learn:**
+- **Installation and Configuration**: Deploy and configure Red Hat Enterprise Linux for various environments.
+- **User and Group Management**: Learn to manage user accounts, groups, and permissions.
+- **Automation**: Use Shell scripts to automate repetitive tasks.
+- **System Services**: Manage critical services and ensure they are running correctly.
+- **Storage and Network Management**: Configure and manage storage and network settings.
 
-🎓 **À qui s'adresse ce cours ?**
-- **Débutants en Administration Système** : Ceux qui souhaitent se lancer dans une carrière en administration système.
-- **Professionnels IT** : Ceux qui cherchent à certifier leurs compétences et à progresser dans leur carrière.
-- **Étudiants** : Ceux qui poursuivent des études en informatique et souhaitent acquérir des compétences pratiques.
+🎯 **Course Objectives:**
+1. Provide you with the knowledge and skills necessary to pass the RHCSA exam.
+2. Prepare you to effectively manage Red Hat Enterprise Linux systems in a professional environment.
+3. Build your system administration expertise through practical exercises and interactive labs.
 
-Rejoignez-nous dans cette aventure et devenez un administrateur système certifié Red Hat ! 🚀
+🎓 **Who is this course for?**
+- **Beginners in System Administration**: Those looking to start a career in system administration.
+- **IT Professionals**: Those who want to certify their skills and advance in their careers.
+- **Students**: Those studying computer science and looking to gain practical experience.
 
-## Table des Matières
-<ol id="table-des-matieres" style="list-style-type: decimal; margin-left: 20px;">
-  <li><a href="01-installation-et-enregistrement.md">Installation de Red Hat Enterprise Linux & Enregistrement</a></li>
-  <li><a href="02-commandes-basiques-et-scripts-shell.md">Commandes basiques & Scripts Shell</a></li>
-  <li><a href="03-gestion-utilisateurs-groupes.md">Gestion des Utilisateurs et des Groupes</a></li>
-  <li><a href="04-automatisation-taches.md">Automatisation des Tâches</a></li>
-  <li><a href="05-gestion-services.md">Gestion des Services</a></li>
-  <li><a href="06-archivage-compression.md">Archivage & compression</a></li>
-  <li><a href="07-nfs-autofs.md">NFS & AutoFS</a></li>
-  <li><a href="08-gestion-stockage.md">Gestion du Stockage</a></li>
-  <li><a href="09-gestion-conteneurs.md">Gestion des Conteneurs</a></li>
-  <li><a href="10-baseos-appstream-repositories.md">BaseOS & AppStream repositories</a></li>
-  <li><a href="11-reseaux.md">Réseaux</a></li>
-  <li><a href="12-reinitialisation-mot-de-passe-root.md">Réinitialisation du Mot de Passe Root</a></li>
-</ol>
+Join us on this journey and become a certified Red Hat system administrator! 🚀
+
+## Table of Contents
+1. Installation of Red Hat Enterprise Linux & Registration
+2. Basic Commands & Shell Scripts
+3. User and Group Management
+4. Task Automation
+5. Service Management
+6. Archiving & Compression
+7. NFS & AutoFS
+8. Storage Management
+9. Container Management
+10. BaseOS & AppStream Repositories
+11. Networking
+12. Root Password Reset

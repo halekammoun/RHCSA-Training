@@ -1,133 +1,153 @@
 <h1 align="center" style="color: red;">NFS & AutoFS</h1>
 
 ## Introduction
-👋 Dans cette section, nous allons explorer comment gérer un serveur NFS dans un environnement Redhat Linux.
+👋 In this section, we will explore how to manage an NFS server in a Red Hat Linux environment.
+
 ## NFS:
 
-### théorie:  
+### Theory:
 <p align="center">
   <img src="images/nfs.JPG" alt="cap" style="width: 700px;"/>
 </p> 
 
-file server?  
-un ordinateur responsable du stockage afin que d'autres ordinateurs du même réseau puissent accéder aux fichiers, via Network share: NFS (protocol of Network share in linux)  
-how to use NFS service?  
-the server export the directory then the client mount the nfs filesystem.  
-any service have a layering protection: firewall; firewalld-cmd command (default: rules are blocked),  selinux; semanage command (security enhanced linux)  
-### pratique:
-partie serveur: (must be root: su -)
+File server?  
+A computer responsible for storage so that other computers on the same network can access the files, via Network share: NFS (Network share protocol in Linux).  
+
+How to use the NFS service?  
+The server exports the directory, then the client mounts the NFS filesystem.
+
+Any service has layered protection:
+- **firewall**: controlled using `firewalld-cmd` (default: rules are blocked),
+- **SELinux**: controlled using the `semanage` command (Security-Enhanced Linux).
+
+### Practice:
+**Server-side** (must be root: `su -`):
 - `dnf install nfs*` → install the service
 - `systemctl enable --now nfs-server` → enable & start the service  
-(or systemctl enable nfs-server then systemctl start nfs-server)  
-- `systemctl status nfs-server`  → verify the status of the service
-configuration?
+- `systemctl status nfs-server` → check the status of the service
+
+**Configuration:**
 - `mkdir /shared_directory` → create the directory to share
-- `echo “/shared_directory	@ipclient(x ,y) ” /etc/exports` → configure the shared directory in the server.  
-`x can be ro or rw & y can be no_root_squash or async`  
-`no_root_squash` → le super utilisateur du client conserve ses privilèges complets sur les fichiers partagés.  
-`root_squash` → (default) les privilèges de client sont limités même pour le superutilisateur du client.  
-`rw` → the shared directory will be readable and writable for the client. 
-`ro` → the shared directory will be just readable for the client.  
-`sync` → (default)  synchronous connexion; the server waits for data to be physically written to the disk (of client) before responding to the client's write request.  
-`async` → asynchronous connexion; the NFS server can respond to the client before the data is physically written to the disk.
-- `systemctl restart nfs-server` → restarting the service because we modified its configuration file (/etc/exports)
-- `semanage boolean -l | grep nfs_export_all_ro` → verifying that nfs is allowed to export with ro mode: must be on
-- `semanage boolean -l | grep nfs_export_all_rw` → verifying that nfs is allowed to export with ro mode: must be on
-- `setsebool -P nfs_export_all_rw=1` → allow sharing with rw mode
-- `setsebool -P nfs_export_all_ro=1` → allow sharing with ro mode
-- `firewall-cmd --list-all` → to see enabled services
-- `firewall-cmd --add-service=nfs --permanent` → to allow nfs service
-- `firewall-cmd --reload` → to reload firewall rules
--`exportfs -avr` → to export the directory to the client  
-partie client: (must be root: su -)
+- `echo “/shared_directory	@ipclient(x ,y)” > /etc/exports` → configure the shared directory  
+  - `x`: can be `ro` or `rw`  
+  - `y`: can be `no_root_squash` or `async`  
+  - `no_root_squash`: the client’s root user retains full privileges on the shared files  
+  - `root_squash` (default): the client’s root privileges are limited  
+  - `rw`: directory is readable & writable  
+  - `ro`: directory is read-only  
+  - `sync` (default): synchronous connection; the server waits for data to be written before replying  
+  - `async`: server can reply before writing is completed  
+
+- `systemctl restart nfs-server` → restart after modifying `/etc/exports`
+- `semanage boolean -l | grep nfs_export_all_ro` → check if NFS is allowed to export in read-only mode
+- `semanage boolean -l | grep nfs_export_all_rw` → check if NFS is allowed to export in read-write mode
+- `setsebool -P nfs_export_all_rw=1` → allow export in rw mode
+- `setsebool -P nfs_export_all_ro=1` → allow export in ro mode
+- `firewall-cmd --list-all` → check enabled firewall services
+- `firewall-cmd --add-service=nfs --permanent` → allow NFS through firewall
+- `firewall-cmd --reload` → apply firewall changes
+- `exportfs -avr` → export the directory
+
+**Client-side** (must be root: `su -`):
 - `dnf install nfs-utils` → install the service
-- `mkdir /mount_point`→ create the directory where you will mount the shared_directory
-- `mount -t nfs -o rw @ipserver:/shared_directory /mount_point` →  mount the shared_directory  
-(umount /shared_directory →  to unmount the shared_directory)
-- `echo “@ipserver:/shared_directory /mnt/mount_point nfs _netdev 0 0” >> /etc/fstab` →  mount the shared_directory permanently.
-- `mount -a` →  to execute the /etc/fstab
-- `df -h` →  to verify
+- `mkdir /mount_point` → directory where the NFS will be mounted
+- `mount -t nfs -o rw @ipserver:/shared_directory /mount_point` → mount the shared directory  
+- `umount /shared_directory` → unmount the shared directory
+- `echo “@ipserver:/shared_directory /mnt/mount_point nfs _netdev 0 0” >> /etc/fstab` → mount it permanently
+- `mount -a` → apply `/etc/fstab`
+- `df -h` → verify mount
+
+---
+
 ## AutoFS:
 
-### théorie: 
+### Theory:
 
 <p align="center">
   <img src="images/autofs.png" alt="cap" style="width: 400px;"/>
 </p> 
 
-Autofs?  
+What is Autofs?
 
-on demand NFS ou montage automatique de répertoire partagé.  
-Autofs permet un montage automatique à la demande des systèmes de fichiers, tels que les partages NFS, lorsque les utilisateurs accèdent à des répertoires spécifiques. Cela contribue à optimiser l'utilisation des ressources système en ne montant les systèmes de fichiers que lorsque nécessaire.  
-server → exports  
-client → auto mount (auto.master & auto.misc)  
-Use case: to share the home directory (server) so its user can use it when he create the session (client).  
-Q0. Create a user named john on the two machines with uid 2001. His home directory on the server is named /host/john. It will be mounted on /host/john with Autofs when john connects.  
-NB:the user in the server must have a base directory, the client must not have a directory :for testing.  
+On-demand NFS or automatic mount of a shared directory.  
+Autofs allows on-demand mounting of filesystems such as NFS when users access specific directories. This helps optimize resource usage by mounting only when needed.
 
-Partie serveur:
+- **Server** → exports
+- **Client** → automount (uses `auto.master` and `auto.misc`)
+
+**Use Case:**  
+To share a home directory from the server so the user can use it when logging in on the client.
+
+---
+
+### Q0. Create a user named `john` on both machines with UID 2001. His home directory on the server is `/host/john`. It will be mounted on `/host/john` using Autofs when John logs in.
+
+**Note**: the user must have a base directory on the server, but not on the client (for testing).
+
+**Server-side:**
 - `dnf install nfs*`
-- `useradd -u 2001 -b /host john` →  créer base du répertoire personnel à partager dans le serveur.
-- `echo “/host 	*(rw,no_root_squash) ” >> /etc/exports` →  modifier le fichier de configuration pour exporter le ‘base directory’.
-- `firewall-cmd --add-service rpc-bind --permanent`
-- `firewall-cmd --add-service mountd --permanent`
-- `firewall-cmd --add-service nfs --permanent`
-or just  
+- `useradd -u 2001 -b /host john` → create the user's base directory
+- `echo “/host 	*(rw,no_root_squash)” >> /etc/exports` → export the base directory
+- `firewall-cmd --add-service=rpc-bind --permanent`
+- `firewall-cmd --add-service=mountd --permanent`
+- `firewall-cmd --add-service=nfs --permanent`
+or simply:
 - `firewall-cmd --add-service={rpc-bind,nfs,mountd} --permanent`
-- `firewall-cmd --reload` →  ajouter les services nécessaires pour le montage automatique.
-- `exportfs -arv` →  exporter le base directory.  
-Partie client:  
+- `firewall-cmd --reload`
+- `exportfs -arv`
+
+**Client-side:**
 - `dnf install nfs-utils`
-- `dnf install autofs` →  installer les packages nécessaires.
-- `//useradd -M -u 2001 -d /host/john john` →  créer un utilisateur sans répertoire personnel.
+- `dnf install autofs` → install needed packages
+- `useradd -M -u 2001 -d /host/john john` → create user without home directory
 - `echo “/host		/etc/auto.misc” >> /etc/auto.master`
-- `echo “john -rw  @ipserver:/host/john” >> /etc/auto.misc` →  configurer le montage automatique de répertoire personnel.
+- `echo “john -rw  @ipserver:/host/john” >> /etc/auto.misc`
 - `systemctl restart nfs-server`
 - `systemctl restart autofs`
-<h1 align="center" style="color: red;">Lab d'évaluation 02</h1>
 
+---
+
+<h1 align="center" style="color: red;">Lab Evaluation 02</h1>
 
 ```bash
-Q0. Create a cron job running as root, starting at 10PM every day and executing the script hello.sh.  
+Q0. Create a cron job running as root at 10PM daily to execute hello.sh  
 crontab -e  
 0 22 * * * bash hello.sh  
-Q2. Make necessary configurations so that httpd runs on port 93 using /tekup as its documentRoot.  
+
+Q2. Configure httpd to run on port 93 with /tekup as DocumentRoot  
 vim /etc/httpd/conf/httpd.conf  
 firewall-cmd --add-port=93/tcp --permanent  
 firewall-cmd --reload  
-man semanage port  
 semanage port -a -t http_port_t -p tcp 93  
 systemctl restart httpd  
 mkdir -p /tekup/html  
 vim /etc/httpd/conf/httpd.conf  
-man semanage fcontext  
 semanage fcontext -a -t httpd_sys_content_t "/tekup/html(/.*)?"  
 restorecon -R -v /tekup/html  
 systemctl restart httpd  
 echo "on port 93" >> /tekup/html/index.html  
 curl http://localhost:93  
-Q3. Archiver et compressez le répertoire /tmp afin d’obtenir tmp.tgz  
+
+Q3. Archive and compress /tmp into tmp.tgz  
 tar -cvzf tmp.tar.gz /tmp  
-Q4. Un partage NFS a été effectué depuis le serveur domain11.example.com  (192.168.0.24) : 192.168.0.24:/remoteuser/user20.   
-Configurez ce partage pour que son répertoire personnel soit monté automatiquement sous /remoteuser/user20.  
-Dans le fichier /etc/passwd, le répertoire de base de l’utilisateur est /remoteuser/user20.  
-partie serveur:  
+
+Q4. An NFS share has been configured from domain11.example.com (192.168.0.24):  
+192.168.0.24:/remoteuser/user20.  
+Configure this share to mount automatically under /remoteuser/user20.  
+User’s home directory in /etc/passwd is /remoteuser/user20.
+
+Server:
 dnf install nfs*  
 useradd -u 2222 -b /remoteuser user20  
-echo “/remoteuser 	*(rw,no_root_squash) ” >> /etc/exports  
+echo “/remoteuser 	*(rw,no_root_squash)” >> /etc/exports  
 firewall-cmd --add-service {rpc-bind,mountd,nfs} --permanent  
 firewall-cmd --reload  
 exportfs -arv  
-partie client:  
+
+Client:
 dnf install nfs-utils  
 dnf install autofs  
 useradd -M -u 2222 -d /remoteuser/user20 user20  
 echo “/remoteuser		/etc/auto.misc” >> /etc/auto.master  
 echo “user20 -rw  192.168.0.24:/remoteuser/user20” >> /etc/auto.misc  
 systemctl restart autofs  
-```
-
-
-<p style="text-align: right;">
-  <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/README.md#table-des-matieres">Retour à la Table des Matières</a>
-</p>

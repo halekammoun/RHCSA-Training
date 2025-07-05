@@ -3,7 +3,6 @@
 <p align="center">
   <img src="images/image.png" alt="Red Hat Logo" width="200">
 </p>
-## System Administration under Red Hat Enterprise Linux
 
 ### Introduction
 👋 Welcome to this course on system administration with Red Hat Enterprise Linux.  

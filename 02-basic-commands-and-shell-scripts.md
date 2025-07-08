@@ -131,67 +131,67 @@ find directory [options] [-exec cp -a {} destination \;]
 ## Lab 01
 
 **Q1.** Copy `/etc/passwd` to `/tmp`:
-
+<!-- 
 ```bash
 cp /etc/passwd /tmp
 ```
-
+--> 
 **Q2.** Copy `/etc/passwd` to home and rename it `mypasswd`:
-
+<!-- 
 ```bash
 cp /etc/passwd ~/mypasswd
 ```
-
+--> 
 **Q3.** Copy `/etc/shadow` to `/home/tekup` and extract lines with "!!":
-
+<!-- 
 ```bash
 mkdir /home/tekup
 cp /etc/shadow /home/tekup
 grep '!!' /home/tekup/shadow > nopass
 ```
-
+--> 
 **Q4.** Extract lines containing "seismic" to `/root/wordlist`:
-
+<!-- 
 ```bash
 grep -w seismic /usr/share/dict/words > /root/wordlist
 ```
-
+--> 
 **Q5.** Find all files owned by user "user":
-
+<!-- 
 ```bash
 find / -type f -user user 2> /dev/null
 ```
-
+--> 
 **Q6.** Find all files smaller than 1 KB in `/var`:
-
+<!-- 
 ```bash
 find /var -type f -size -1k
 ```
-
+--> 
 **Q7.** Find `.txt` files in `/root/Documents`:
-
+<!-- 
 ```bash
 find /root/Documents -name '*.txt'
 ```
-
+--> 
 **Q8.** Copy all files owned by "user" to `/root/dir`:
-
+<!-- 
 ```bash
 find / -type f -user user -exec cp -a {} /root/dir \;
 ```
-
+--> 
 **Q9.** Copy files larger than 100MB to `/backup`:
-
+<!-- 
 ```bash
 find / -type f -size +100M -exec cp -a {} /backup \;
 ```
-
+--> 
 **Q10.** Copy files with `640` permission to `/secure_backup`:
-
+<!-- 
 ```bash
 find /home/user/documents -perm 640 -exec cp -a {} /secure_backup \;
 ```
-
+--> 
 ## Shell Scripts
 
 * Scripts use `.sh` extension.
@@ -221,25 +221,25 @@ chmod +x script.sh
 ## Lab 02
 
 **Q0.** Display “hello world!”:
-
+<!-- 
 ```bash
 vim hello.sh
 #! /bin/bash
 echo “hello world!”
 bash hello.sh
 ```
-
+--> 
 **Q1.** Display current date:
-
+<!-- 
 ```bash
 vim date.sh
 #! /bin/bash
 echo “$(date)”
 bash date.sh
 ```
-
+--> 
 **Q2.** Ask user for name, greet them, log the event:
-
+<!-- 
 ```bash
 vim greeting.sh
 #! /bin/bash
@@ -250,3 +250,4 @@ logger “user $name executed the greeting script”
 bash greeting.sh
 journalctl | grep user
 ```
+--> 

@@ -35,28 +35,31 @@
 ## Lab 00
 
 **Q1.** Navigate to your home directory:
-
+<!-- 
 ```bash
 cd ~
 ```
-
+--> 
 **Q2.** Create a directory named LinuxCommands:
-
+<!-- 
 ```bash
 mkdir LinuxCommands
 ```
+--> 
 
 **Q3.** Navigate to the LinuxCommands directory:
-
+<!-- 
 ```bash
 cd LinuxCommands
 ```
+--> 
 
 **Q4.** Create the directory structure course1/course2/course3/course4:
-
+<!-- 
 ```bash
 mkdir -p course1/course2/course3/course4
 ```
+
 
 or step-by-step:
 
@@ -69,9 +72,9 @@ mkdir course3
 cd course3  
 mkdir course4
 ```
-
+--> 
 **Q5.** Create files: file1, file2, file3, file4:
-
+<!-- 
 ```bash
 cd ~/LinuxCommands
 touch file1 file2 file3 file4
@@ -83,20 +86,20 @@ or:
 cd ~/LinuxCommands
 touch file{1..4}
 ```
-
+--> 
 **Q6.** Check file owner and last modification date:
-
+<!-- 
 ```bash
 ls -l
 ```
-
+--> 
 **Q7.** Delete the LinuxCommands directory:
-
+<!-- 
 ```bash
 cd ..
 rm -rf LinuxCommands
 ```
-
+--> 
 ## Additional Commands
 
 * `cp -rf source destination`: Copies a directory.

@@ -147,14 +147,8 @@ sudo chown :tekup fich
 
 ### Example:
 
-**Default file permissions if umask = 013**
-Result:
 
-* User: `rw-`
-* Group: `rw-`
-* Others: `r--`
-
-**Default directory permissions with umask = 013**
+**Default directory ad file permissions with umask = 013**
 Result:
 
 * User: `rwx`
@@ -162,6 +156,13 @@ Result:
 * Others: `r--`
 
 ## Special Permissions
+SUID gives a user temporary access to run a file as the file’s owner.
+
+
+SGID ensures files created in a directory inherit the group of the directory.
+
+
+The sticky bit is used on shared directories so that only the file’s owner or root can delete files.
 
 * **SUID (4000)**: Run file with owner's privileges.
 

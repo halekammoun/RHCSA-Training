@@ -3,12 +3,22 @@
 
 ## Introduction
 👋 In this section, we will explore how to manage containers: rsyslog, http, and pdf-converter.
+<p align="center">
+  <img src="images/Container.JPG" alt="cap" style="width: 600px;"/>
+</p>  
 
+<p align="center">
+  <img src="images/docker.png" alt="cap" style="width: 600px;"/>
+</p> 
 1. Pull a container image (or build one)
 2. Run a container as a rootless user
 3. Map the container to a local directory
+<p align="center">
+  <img src="images/map.JPG" alt="cap" style="width: 600px;"/>
+</p>  
 
 ### Rsyslog Container
+
 - Install required packages: `dnf install podman container-tools`
 - Create user: `useradd user1`, then `passwd user1`
 - Allow user processes to persist after logout: `loginctl enable-linger user1`
@@ -38,6 +48,9 @@
   - Check logs as root: `journalctl | grep container-rsyslog.service`
 
 ### Apache Container
+<p align="center">
+  <img src="images/Docker-ports.png" alt="cap" style="width: 600px;"/>
+</p>  
 Launch an httpd container from the image: `registry.access.redhat.com/ubi9/httpd-24`
 
 Requirements:
@@ -73,6 +86,9 @@ journalctl | grep container-web.service
 ```
 
 ### PDF Converter Container
+<p align="center">
+  <img src="images/pdf.JPG" alt="cap" style="width: 600px;"/>
+</p>  
 This container runs a Python script `pdf_converter.py` to convert text files to PDFs using Podman.
 
 Steps:

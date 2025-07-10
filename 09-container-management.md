@@ -76,6 +76,9 @@ podman generate systemd --name web --files --new
 systemctl --user daemon-reload
 systemctl --user enable --now container-web.service
 curl localhost:8081
+podman exec -it web /bin/bash
+bash-5.1$ curl localhost:8080
+
 ```
 Check container status and logs:
 ```bash

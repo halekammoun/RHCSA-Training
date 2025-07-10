@@ -10,9 +10,9 @@
 <p align="center">
   <img src="images/docker.png" alt="cap" style="width: 600px;"/>
 </p> 
-1. Pull a container image (or build one)
-2. Run a container as a rootless user
-3. Map the container to a local directory
+1. Pull a container image (or build one)  
+2. Run a container as a rootless user  
+3. Map the container to a local directory  
 <p align="center">
   <img src="images/map.JPG" alt="cap" style="width: 600px;"/>
 </p>  

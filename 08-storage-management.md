@@ -80,12 +80,14 @@ swapon -a
 <p align="center">
   <img src="images/Ca.JPG" alt="cap" style="width: 600px;"/>
 </p> 
-To create a logical volume:
-- Create a physical volume (PV) from a partition.
-- Create a volume group (VG) from PVs.
-- Create a logical volume (LV).
+To obtain a logical volume, we must:
 
-> Why? Need an 8G volume but only small partitions? → LVM.
+* Have a physical volume (PV) created from a partition.
+* Create a volume group (VG) from physical volumes (PVs).
+* Create a logical volume.
+
+*Why?* (We need an 8G volume, but we only have partitions smaller than 8G. Solution: use the LVM concept.)
+*Note:* By default, when we create the VG, a small percentage will be reserved for metadata (one PE per partition (PV)).
 
 ### Commands:
 
@@ -151,10 +153,34 @@ mount -a
 ### Q2. Resize LV `lv0` to 300MB
 
 ```bash
-lvextend -L +148M /dev/vg/lv0
+#### Q2. Resize the LV named lv0 = 152M so that it falls within the range of 200MB to 300MB.
+
+**Creation of lv0:**
+fdisk /dev/sda then +156M (152 + 4 PE) → vgcreate vg /dev/sda1 →
+lvcreate -L 152M -n lv0 vg
+
+*Correction:*
+How many PEs are needed so that the max = 300:
+lvextend -l ? /dev/vg/lv0
+
+max - 152 = 300 - 152 = 148
+PE = 4 \* ? = 148 (since PE = 4)
+? = number of PEs = 148 / 4 = 37 PE
+
+*Note:* partition → vgcreate / vgextend reduces one PE
+
+To extend the VG, we must add a PE to the partition. → Create a partition:
+fdisk /dev/sda then +152M (148 + 4) → we get /dev/sda2: 152M
+vgextend vg /dev/sda2 → (VG is extended by 152 - 4 = 148M)
+
+Then:
+lvextend -L +148M /dev/vg/lv0 or lvextend -l +37 /dev/vg/lv0
 ```
 
 ## Advanced Storage with Stratis
+<p align="center">
+  <img src="images/Cre.JPG" alt="cap" style="width: 600px;"/>
+</p> 
 
 ### Theory:
 

@@ -5,7 +5,9 @@
 👋 In this section, we will explore how to manage disks, partitions, LVM, and Stratis in a Red Hat Linux environment.
 
 ## Disks & Partitions:
-
+<p align="center">
+  <img src="images/Cap1.JPG" alt="cap" style="width: 600px;"/>
+</p> 
 ### Theory:
 
 - **Partitioning**: creating one or more independent storage zones.
@@ -74,7 +76,9 @@ swapon -a
 ## Logical Volume Management (LVM)
 
 ### Theory:
-
+<p align="center">
+  <img src="images/Ca.JPG" alt="cap" style="width: 600px;"/>
+</p> 
 To create a logical volume:
 - Create a physical volume (PV) from a partition.
 - Create a volume group (VG) from PVs.

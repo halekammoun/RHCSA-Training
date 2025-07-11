@@ -101,6 +101,7 @@ useradd pod
 passwd pod
 mkdir -p /data/input /data/output
 chown -R pod:pod /data/*
+chmod -R 777 /data
 chmod -R 777 /data/input /data/output
 echo "file" > /data/input/file.txt
 chown pod:pod /data/input/file.txt

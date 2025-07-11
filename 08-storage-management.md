@@ -8,6 +8,7 @@
 <p align="center">
   <img src="images/Cap1.JPG" alt="cap" style="width: 600px;"/>
 </p> 
+
 ### Theory:
 
 - **Partitioning**: creating one or more independent storage zones.

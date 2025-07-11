@@ -2,7 +2,7 @@
 # Root Password Reset
 
 ## Steps:
-- Add `init=/bin/sh` at the end of the kernel line (after the word `quiet`) to open a shell prompt.
+- Add `init=/bin/sh` at the end of the kernel line (after the word `quiet`) to open a shell prompt, cntrl+x.
 - Remount the filesystem in read-write mode: `mount -o remount rw /`
 - Change the root password: `passwd root`
 - Enter the new password when prompted and confirm it.

@@ -26,8 +26,10 @@ Note: Well-known ports: numbered from 0 to 1023, they are associated with standa
   Note: On Red Hat, every service is protected by two default security layers: the **Firewall** (`Firewalld`) and **SELinux** (Security-Enhanced Linux).
 
 <p align="center">
-  <img src="images/word-image.png" alt="cap" style="width: 300px;"/>
+  <img src="images/word-image.png" alt="cap" style="width: 400px;"/>
 </p>  
+
+
 * `firewall-cmd --add-port=22/tcp --permanent`  
 * `firewall-cmd --reload`  
 * `firewall-cmd --list-ports` → open SSH port for incoming connections (on the client machine).  

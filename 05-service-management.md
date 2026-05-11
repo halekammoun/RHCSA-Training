@@ -28,13 +28,13 @@ Note: Well-known ports: numbered from 0 to 1023, they are associated with standa
 <p align="center">
   <img src="images/word-image.png" alt="cap" style="width: 300px;"/>
 </p>  
-* `firewall-cmd --add-port=22/tcp --permanent`
-* `firewall-cmd --reload`
-* `firewall-cmd --list-ports` → open SSH port for incoming connections (on the client machine).
+* `firewall-cmd --add-port=22/tcp --permanent`  
+* `firewall-cmd --reload`  
+* `firewall-cmd --list-ports` → open SSH port for incoming connections (on the client machine).  
 * `ssh username@server_ip_address` → test SSH connection (on the client machine; user must have a password), or  
 * `vim /etc/hosts`  
   `client_ip    hostname` → assign a hostname to each machine’s IP address.  
-* `ssh user_client@hostname`
+* `ssh user_client@hostname`  
 
 #### Connect without a password (key-based authentication):
 

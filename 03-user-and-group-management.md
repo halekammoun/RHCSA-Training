@@ -64,21 +64,22 @@
 
 **Q0.** Set UID range for new users between 1000 and 3000:
 
-```bash
+<!-- ```bash
 vim /etc/login.defs
 UID_MIN 1000
 UID_MAX 3000
 ```
+-->
 
 **Q1.** Create user 'student' with password 'tekup':
-
+<!--
 ```bash
 useradd student
 passwd student
 ```
-
+-->
 **Q2.** Set default umask to 013 for 'student':
-
+<!--
 ```bash
 su - student
 vim .bashrc
@@ -87,35 +88,35 @@ exit
 su student
 umask
 ```
-
+-->
 **Q3.** Add 'student' to secondary group 'tekup':
-
+<!--
 ```bash
 groupadd tekup
 usermod -G tekup student
 ```
-
+-->
 **Q4.** Give 'student' sudo access without password:
-
+<!--
 ```bash
 echo “student ALL=(ALL) NOPASSWD:ALL” >> /etc/sudoers
 # or edit manually
 vim /etc/sudoers
 ```
-
+-->
 **Q5.** As 'student', create file 'fich':
-
+<!--
 ```bash
 su - student
 touch fich
 ```
-
+-->
 **Q6.** Change group ownership of 'fich' to 'tekup':
-
+<!--
 ```bash
 sudo chown :tekup fich
 ```
-
+-->
 ## File Permissions
 
 * Read – Write – Execute

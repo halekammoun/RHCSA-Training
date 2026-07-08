@@ -205,6 +205,50 @@ chmod o+t test_directory
 setfacl -m u:friend:r,g:colleagues:rw,o:- confidential
 ```
 
+
+---
+
+# **Evaluation Lab 01**
+
+```bash
+Q1. Create groups:
+
+Q2. Create users:
+
+Q3. foulen2 account expires April 5, 2030 with min password age 5, warning 7:
+
+Q4. foulen2 password expires March 23, 2025:
+
+
+Q5. Create directory `/home/tekup`:
+
+
+Q6. Copy `/etc/passwd` to `/tmp`, give foulen1 rw, foulen2 none:
+
+
+Q7. Copy all files owned by "user" to `/opt/dir`:
+
+Q8. Copy `/etc/shadow` to `/home/tekup`, extract “!!” lines:
+
+
+Q9. All user passwords expire after 500 days:
+
+
+Q10. Password must contain 1 uppercase and 2 digits:
+
+Q11. Set minimum password length to 9:
+
+Q12. foulen3 password expires after 20 days:
+
+
+Q13. Files created by foulen2 should be `r--rw-r--`:
+
+
+Q14. Lock user foulen1:
+```
+
+
+<!--
 ---
 
 # **Evaluation Lab 01**
@@ -277,3 +321,4 @@ umask 202
 Q14. Lock user foulen1:
 usermod -L foulen1
 ```
+-->

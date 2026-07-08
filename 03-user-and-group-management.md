@@ -231,11 +231,9 @@ Q13. Files created by foulen2 should be `r--rw-r--`:
 Q14. Lock user foulen1:
 ```
 
-
-<!--
 ---
 
-# **Evaluation Lab 01**
+# **Correction Lab 01**
 
 ```bash
 Q1. Create groups:
@@ -305,4 +303,3 @@ umask 202
 Q14. Lock user foulen1:
 usermod -L foulen1
 ```
--->

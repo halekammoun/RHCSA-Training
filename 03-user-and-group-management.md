@@ -218,7 +218,7 @@ fouen 1 has tekup as primary group, foulen2 has redhat as primary group
 and tekup as secondry group and finally foulen 3 has both tekup and  
 redhat as secondry groups.
 Q3. foulen2 account expires April 5, 2030 with min password age 5, warning 7:
-Q4. foulen2 password expires March 23, 2025:
+Q4. foulen2 password expires july 15, 2026:
 Q5. Create directory `/home/tekup`:
 Q6. Copy `/etc/passwd` to `/tmp`, give foulen1 rw, foulen2 none:
 Q7. Copy all files owned by "user" to `/opt/dir`:
@@ -255,6 +255,9 @@ usermod -g redhat -G tekup foulen2
 usermod -G redhat -aG tekup foulen3
 
 Q3. foulen2 account expires April 5, 2030 with min password age 5, warning 7:
+NB.  
+-E --> acount expiration  
+-M --> pwd expiration  
 chage -E 2030-04-05 -m 5 -W 7 foulen2
 
 Q4. foulen2 password expires March 23, 2025:

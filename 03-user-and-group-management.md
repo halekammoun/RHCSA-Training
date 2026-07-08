@@ -211,8 +211,8 @@ setfacl -m u:friend:r,g:colleagues:rw,o:- confidential
 # **Evaluation Lab 01**
 
 ```bash
-Q1. Create groups:
-Q2. Create users:
+Q1. Create groups: redhat , tekup
+Q2. Create users: foulen 1 with comment guest foulen1 and id 1300, foulen 2 with shell as /bin/sh and foulen3 with home directory /home/test  , fouen 1 has tekup as primary group, foulen2 has redhat as primary group and tekup as secondry group and finally foulen 3 has both tekup and redhat as secondry groups.
 Q3. foulen2 account expires April 5, 2030 with min password age 5, warning 7:
 Q4. foulen2 password expires March 23, 2025:
 Q5. Create directory `/home/tekup`:

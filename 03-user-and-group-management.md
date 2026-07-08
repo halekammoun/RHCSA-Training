@@ -279,7 +279,7 @@ setfacl -m u:foulen1:rw,u:foulen2:- /tmp/passwd
 Q7. Copy all files owned by "user" to `/opt/dir`:
 find / -type f -user user -exec cp -a {} /opt/dir \;
 
-Q8. Copy `/etc/shadow` to `/home/tekup`, extract “!!” lines:
+Q8. Copy `/etc/shadow` to `/home/tekup`, extract “!!” lines in file nopass
 cp /etc/shadow /home/tekup/
 grep "!!" /home/tekup/shadow > nopass
 

@@ -44,7 +44,7 @@ Join us on this journey and become a certified Red Hat system administrator! ðŸš
 9. [Container Management](./09-container-management.md)
 10. [BaseOS & AppStream Repositories](./10-baseos-appstream-repositories.md)
 11. [Networking](./11-networking.md)
-12. [Root Password Reset](./12-root-password-reset.md)
+12. [Root Password Reset](./12-root-password-reset.md)  
 *Edition of version 10*
 13. [Flatpak Repositories](./13-flatpak-repositories.md)
 14. [Systemd Timers](./14-systemd-timers.md)

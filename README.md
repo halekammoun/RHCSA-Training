@@ -47,3 +47,4 @@ Join us on this journey and become a certified Red Hat system administrator! ðŸš
 12. [Root Password Reset](./12-root-password-reset.md)
 *Edition of version 10*
 13. [Flatpak Repositories](./13-flatpak-repositories.md)
+14. [Systemd Timers](./14-systemd-timers.md)

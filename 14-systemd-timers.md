@@ -87,6 +87,7 @@ Some commonly used timer directives are:
 | ------------------ | ---------------------------------- |
 | `OnBootSec=`       | Run after system boot              |
 | `OnStartupSec=`    | Run after systemd starts           |
+| `OnCalendar=`      | Run on a calendar schedule         |
 | `OnUnitActiveSec=` | Run after the previous execution   |
 
 For this lab, we will use:
@@ -191,6 +192,13 @@ Persistent=true
 WantedBy=timers.target
 ```
 
+(
+The [Timer] section defines when the service should be executed.
+- `OnUnitActiveSec=1min`: Starts the associated service 1 minute after its last execution.
+- `Persistent=true`: If the system was powered off during a scheduled execution, the missed execution is started automatically after the next boot.
+The [Install] section defines when the timer should be enabled.
+- `WantedBy=timers.target`: Makes the timer start automatically during system boot when it is enabled using:
+)
 ---
 
 #### Q3. Reload Systemd
@@ -233,9 +241,7 @@ systemctl list-timers
 Expected output:
 
 ```text
-NEXT                 LEFT       LAST
-...
-log-capture.timer
+log-capture.service
 ```
 
 ---
@@ -266,77 +272,9 @@ cat /root/log_output/system_logs.trc
 
 You should see the contents of the `/tmp` directory.
 
----
-
-## Lab Summary
-
-```text
-Create Script
-       │
-       ▼
-Create Service
-       │
-       ▼
-Create Timer
-       │
-       ▼
-Reload systemd
-       │
-       ▼
-Enable Timer
-       │
-       ▼
-Verify Timer
-       │
-       ▼
-Verify Output
-```
-
----
-
-## Useful Commands
-
-Display all timers:
-
-```bash
-systemctl list-timers
-```
-
-Stop the timer:
-
-```bash
-systemctl stop log-capture.timer
-```
-
-Disable the timer:
-
-```bash
-systemctl disable log-capture.timer
-```
-
-Restart the timer:
-
-```bash
-systemctl restart log-capture.timer
-```
-
-Display the timer configuration:
-
-```bash
-systemctl cat log-capture.timer
-```
-
-Display the service configuration:
-
-```bash
-systemctl cat log-capture.service
-```
-
----
-
 ## Exam Tips
 
-💡 Remember:
+Remember:
 
 * A **timer** never executes a script directly.
 * A timer **starts a service**.

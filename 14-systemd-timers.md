@@ -148,13 +148,16 @@ Type=oneshot
 ExecStart=/usr/local/bin/log_capture
 ```
 ([Unit] contient toujours des informations générales comme commentaire ou documentation  
-tandis que la section [Service] décrit comment exécuter le service;
+tandis que la section [Service] décrit comment exécuter le service;  
+
+---
 | Type      | Utilisation                                                    |
 | --------- | -------------------------------------------------------------- |
 | `simple`  | Programme qui reste en exécution (nginx, sshd, httpd...)       |
 | `forking` | Programme qui se met en arrière-plan (ancien modèle de daemon) |
 | `oneshot` | Exécute une tâche puis se termine                              |  
 ---
+
 on utilise oneshot dans le cas de systems timer car Systemd lance le programme,  
 attends qu'il termine, puis le service est terminé.
 ExecStart: C'est la commande que systemd exécutera lorsque le service démarre.  
